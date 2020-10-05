@@ -1,0 +1,113 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__links {
+  margin-right: auto;
+  margin-left: 50px;
+  font-size: 18px;
+}
+
+.navbar__link:not(:last-child) {
+  margin-right: 10px;
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
+}
+
+.navbar__logo-link {
+  color: #4977cc;
+}
+
+.link:hover {
+  color: #4977cc;
+}
+
+.button {
+  padding: 10px;
+  border: 1px solid #4977cc;
+  border-radius: 5px;
+  color: #4977cc;
+  font-size: 18px;
+}
+
+.weather-card {
+  width: 320px;
+  height: 300px;
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0px 2px 11px 0px #000;
+}
+
+.weather-card__content_display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 250px;
+  max-height: 90px;
+  margin: 40px;
+  margin-top: 60px;
+}
+
+.weather-card__content_input-wrapper {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.weather-card__content_input {
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.weather-card__content_date {
+  padding-top: 13px;
+}
+
+/* .weather-card__content_emoji {
+  width: 90px;
+  height: 90px;
+} */
+
+.weather-card__content_emoji_p {
+  font-size: 90px;
+  margin-right: 50px;
+}
+
+.weather-card__content_temp_p {
+  font-size: 70px;
+}
+
+.input {
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+}
+
+.input:hover {
+  border-bottom: 1px solid #4977cc;
+}
+
+.input:focus {
+  border-bottom: 1px solid #4977cc;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
