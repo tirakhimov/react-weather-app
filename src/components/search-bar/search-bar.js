@@ -4,7 +4,9 @@ import './search-bar.css';
 function SearchBar() {
   return (
     <div className="weather-card__content_input-wrapper">
-      <span className="weather-card__content_input-marker">&#128205;</span>
+      <span role="img" aria-label="round pushpin">
+        &#128205;
+      </span>
       <input
         className="input weather-card__content_input"
         type="text"
