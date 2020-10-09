@@ -1,13 +1,7 @@
 import React from 'react';
-import NetworkingService from '../../services/networking-service';
 import './app.css';
 
 
-function App() {
-  const networking = new NetworkingService();
-  networking.getWeatherInfo('London').then((body) => {
-    console.log(body);
-  })
 
   return (
     <div className="App">
