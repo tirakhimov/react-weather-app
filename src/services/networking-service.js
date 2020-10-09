@@ -10,7 +10,7 @@ export default class NetworkingService {
       const response = await fetch(`${this._proxy}${this._apiBase}${cityName}&appid=${this._apiKey}`);
       return await response.json();
     } catch(err) {
-      console.log(err);
+      throw new Error(err.message);
     }
   }
 }
