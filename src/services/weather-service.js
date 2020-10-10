@@ -1,21 +1,20 @@
 import NetworkingService from './networking-service';
+import { capitalize } from "../helpers";
 
 export default class WeatherService {
-  #networkingService;
 
-  constructor(networkingService) {
-    this.#networkingService = networkingService;
-  }
+  networkingService = new NetworkingService()
 
   getWeatherForToday(cityName) {
-    this.#networkingService.getWeatherInfo(cityName).then((body) => {
-      const weatherObj = {
-        cityName: `${body.name}`,
-        temperature: `${Math.round(body.main.temp - 273)}`,
-        sky: `${body.weather[0].main}`,
+    return this.networkingService.getWeatherInfo(cityName).then((body) => {
+      const temperature = Math.round(body.main.temp);
+      const weatherName = body.weather[0].main;
+
+      return  {
+        cityName: `${capitalize(cityName)}`,
+        temperature: `${temperature}`,
+        sky: `${weatherName}`,
       };
-      console.log(weatherObj);
-      return weatherObj;
     });
   }
 }
