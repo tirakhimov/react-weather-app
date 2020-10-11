@@ -10,14 +10,16 @@ export default class DateFormatter {
   date = new Date();
 
   formatDate() {
-    const dateObject = {
-      dayOfWeek: this._daysOfWeekArray[this.date.getDay()],
-      currentDate: this.date.getDate(),
-      currentMonth: this._monthsArray[this.date.getMonth()],
-      currentTime: `${this.date.getHours()}:${this.date.getMinutes()}`,
-    }
 
-    const {dayOfWeek, currentDate, currentMonth, currentTime} = dateObject;
-    return `${dayOfWeek}, ${currentDate} ${currentMonth} ${currentTime}`;
+    let dayOfWeek = this._daysOfWeekArray[this.date.getDay()],
+        currentDate = this.date.getDate(),
+        currentMonth = this._monthsArray[this.date.getMonth()],
+        hour = this.date.getHours(),
+        minutes = this.date.getMinutes()
+
+    hour = hour < 10 ? '0' + hour : hour;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+
+    return `${dayOfWeek}, ${currentDate} ${currentMonth} ${hour}:${minutes}`;
   }
 }
