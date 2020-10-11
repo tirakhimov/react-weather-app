@@ -9,19 +9,12 @@ export default class DateFormatter {
   ];
   date = new Date();
 
-  get daysOfWeekArray() {
-    return this._daysOfWeekArray;
-  }
-
-  get monthsArray() {
-    return this._monthsArray;
-  }
 
   makeDate() {
     return {
-      dayOfWeek: this.daysOfWeekArray[this.date.getDay()],
+      dayOfWeek: this._daysOfWeekArray[this.date.getDay()],
       currentDate: this.date.getDate(),
-      currentMonth: this.monthsArray[this.date.getMonth()],
+      currentMonth: this._monthsArray[this.date.getMonth()],
       currentTime: `${this.date.getHours()}:${this.date.getMinutes()}`,
     }
   }
