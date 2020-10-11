@@ -6,6 +6,7 @@ import WeatherService from "../../services/weather-service";
 export default class WeatherCard extends Component {
 
   state ={}
+  state = {}
 
   weatherService = new WeatherService()
 
