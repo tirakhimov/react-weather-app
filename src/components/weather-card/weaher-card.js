@@ -32,7 +32,7 @@ export default class WeatherCard extends Component {
       <div>
         <div className="weather-card">
           <h3 className="weather-card__content_header">
-            Погода в {cityName}
+            Погода в <span className="capitalize">{cityName}</span>
           </h3>
           <SearchBar/>
           <span className="weather-card__content_date"></span>

@@ -1,5 +1,4 @@
 import NetworkingService from './networking-service';
-import { capitalize } from "../helpers";
 
 export default class WeatherService {
 
@@ -11,7 +10,7 @@ export default class WeatherService {
       const temperature = Math.round(body.main.temp);
 
       return  {
-        cityName: `${capitalize(cityName)}`,
+        cityName: `${cityName}`,
         weatherName: `${weatherName}`,
         temperature: `${temperature}`,
       };
