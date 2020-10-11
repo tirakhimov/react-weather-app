@@ -3,7 +3,6 @@ import SearchBar from '../search-bar/search-bar';
 import './weather-card.css';
 import WeatherService from "../../services/weather-service";
 import CurrentDate from '../current-date/current-date.js';
-import EmojiConfigurator from "../../services/emoji-configurator";
 
 export default class WeatherCard extends Component {
 
