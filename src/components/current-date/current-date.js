@@ -1,8 +1,8 @@
 import React from 'react';
-import './date.css';
+import './current-date.css';
 import DateFormatter from '../../services/date-formatter';
 
-export default function Date() {
+export default function CurrentDate() {
 
   const dateFormatter = new DateFormatter();
 
