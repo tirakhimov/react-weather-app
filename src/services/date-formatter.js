@@ -1,13 +1,21 @@
 export default class DateFormatter {
 
-  daysOfWeekArray = [
+  _daysOfWeekArray = [
     'Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'
   ];
-  monthsArray = [
+  _monthsArray = [
     'Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля',
     'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'
   ];
   date = new Date();
+
+  get daysOfWeekArray() {
+    return this._daysOfWeekArray;
+  }
+
+  get monthsArray() {
+    return this._daysOfWeekArray;
+  }
 
   makeDate() {
     return {
