@@ -20,7 +20,7 @@ function Navbar() {
           Три дня
         </a>
       </div>
-      <button className="button navbar__button">Login</button>
+      <button type="submit" className="button navbar__button">Login</button>
     </div>
   );
 }
