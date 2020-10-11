@@ -5,11 +5,16 @@ export default class DateFormatter {
   date = new Date();
 
   configureDate() {
-    const dayOfWeek = this.daysOfWeekArray[this.date.getDay()],
-          currentDate = this.date.getDate(),
-          currentMonth = this.monthsArray[this.date.getMonth()],
-          currentTime = `${this.date.getHours()}:${this.date.getMinutes()}`;
+    return {
+      dayOfWeek: this.daysOfWeekArray[this.date.getDay()],
+      currentDate: this.date.getDate(),
+      currentMonth: this.monthsArray[this.date.getMonth()],
+      currentTime: `${this.date.getHours()}:${this.date.getMinutes()}`,
+    }
+  }
 
-    return `${dayOfWeek}, ${currentDate} ${currentMonth} ${currentTime}`;
+  formatDate() {
+    const dateObject = this.configureDate();
+    return `${dateObject.dayOfWeek}, ${dateObject.currentDate} ${dateObject.currentMonth} ${dateObject.currentTime}`;
   }
 }
