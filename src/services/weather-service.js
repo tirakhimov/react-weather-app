@@ -1,9 +1,10 @@
 import NetworkingService from './networking-service';
-import { capitalize } from "../helpers";
+import EmojiConfigurator from "./emoji-configurator";
 
 export default class WeatherService {
 
   networkingService = new NetworkingService()
+  emojiConfigurator = new EmojiConfigurator()
 
   getWeatherForToday(cityName) {
     return this.networkingService.getWeatherInfo(cityName).then((body) => {
@@ -11,9 +12,9 @@ export default class WeatherService {
       const weatherName = body.weather[0].main;
 
       return  {
-        cityName: `${capitalize(cityName)}`,
+        cityName: `${cityName}`,
         temperature: `${temperature}`,
-        sky: `${weatherName}`,
+        weatherName: `${this.emojiConfigurator.configureEmoji(weatherName)}`,
       };
     });
   }

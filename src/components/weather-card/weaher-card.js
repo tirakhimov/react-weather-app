@@ -3,6 +3,7 @@ import SearchBar from '../search-bar/search-bar';
 import './weather-card.css';
 import WeatherService from "../../services/weather-service";
 import CurrentDate from '../current-date/current-date.js';
+import EmojiConfigurator from "../../services/emoji-configurator";
 
 export default class WeatherCard extends Component {
 
@@ -19,15 +20,15 @@ export default class WeatherCard extends Component {
       .then((response) => {
         this.setState({
           cityName: response.cityName,
-          sky: response.sky,
           temperature: response.temperature,
+          weatherName: response.weatherName,
         })
-    });
+    }).catch();
   }
 
   render() {
 
-    const {cityName, sky, temperature} = this.state;
+    const {cityName, weatherName, temperature} = this.state;
 
     return (
       <div>
@@ -39,7 +40,7 @@ export default class WeatherCard extends Component {
           <CurrentDate />
           <div className="weather-card__content_display">
             <div className="weather-card__content_emoji">
-              <p className="weather-card__content_emoji_p">{sky}</p>
+              <p className="weather-card__content_emoji_p">{weatherName}</p>
             </div>
             <div className="weather-card__content_temp">
               <p className="weather-card__content_temp_p">{temperature}&deg;</p>
