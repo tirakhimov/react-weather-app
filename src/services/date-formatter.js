@@ -9,7 +9,7 @@ export default class DateFormatter {
   ];
   date = new Date();
 
-  configureDate() {
+  makeDate() {
     return {
       dayOfWeek: this.daysOfWeekArray[this.date.getDay()],
       currentDate: this.date.getDate(),
@@ -19,7 +19,7 @@ export default class DateFormatter {
   }
 
   formatDate() {
-    const dateObject = this.configureDate();
+    const dateObject = this.makeDate();
     const {dayOfWeek, currentDate, currentMonth, currentTime} = dateObject;
     return `${dayOfWeek}, ${currentDate} ${currentMonth} ${currentTime}`;
   }
