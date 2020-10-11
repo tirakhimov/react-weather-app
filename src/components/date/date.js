@@ -8,7 +8,7 @@ export default function Date() {
 
   return (
     <div>
-      <span>{dateFormatter.configureDate()}</span>
+      <span>{dateFormatter.formatDate()}</span>
     </div>
   )
 }
