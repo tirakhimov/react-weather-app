@@ -14,7 +14,7 @@ export default class DateFormatter {
   }
 
   get monthsArray() {
-    return this._daysOfWeekArray;
+    return this._monthsArray;
   }
 
   makeDate() {
