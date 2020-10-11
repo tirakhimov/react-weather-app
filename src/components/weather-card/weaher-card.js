@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import SearchBar from '../search-bar/search-bar';
 import './weather-card.css';
 import WeatherService from "../../services/weather-service";
-import Date from '../date/date.js';
+import CurrentDate from '../current-date/current-date.js';
 
 export default class WeatherCard extends Component {
 
@@ -36,7 +36,7 @@ export default class WeatherCard extends Component {
             Погода в {cityName}
           </h3>
           <SearchBar/>
-          <Date />
+          <CurrentDate />
           <div className="weather-card__content_display">
             <div className="weather-card__content_emoji">
               <p className="weather-card__content_emoji_p">{sky}</p>
