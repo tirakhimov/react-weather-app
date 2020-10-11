@@ -9,18 +9,14 @@ export default class DateFormatter {
   ];
   date = new Date();
 
-
-  makeDate() {
-    return {
+  formatDate() {
+    const dateObject = {
       dayOfWeek: this._daysOfWeekArray[this.date.getDay()],
       currentDate: this.date.getDate(),
       currentMonth: this._monthsArray[this.date.getMonth()],
       currentTime: `${this.date.getHours()}:${this.date.getMinutes()}`,
     }
-  }
 
-  formatDate() {
-    const dateObject = this.makeDate();
     const {dayOfWeek, currentDate, currentMonth, currentTime} = dateObject;
     return `${dayOfWeek}, ${currentDate} ${currentMonth} ${currentTime}`;
   }
