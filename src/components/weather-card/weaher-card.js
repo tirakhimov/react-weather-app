@@ -5,7 +5,6 @@ import WeatherService from "../../services/weather-service";
 
 export default class WeatherCard extends Component {
 
-  state ={}
   state = {}
 
   weatherService = new WeatherService()
@@ -19,7 +18,7 @@ export default class WeatherCard extends Component {
       .then((response) => {
         this.setState({
           cityName: response.cityName,
-          sky: response.sky,
+          weatherName: response.weatherName,
           temperature: response.temperature,
         })
     });
@@ -27,7 +26,7 @@ export default class WeatherCard extends Component {
 
   render() {
 
-    const {cityName, sky, temperature} = this.state;
+    const {cityName, weatherName, temperature} = this.state;
 
     return (
       <div>
@@ -39,7 +38,7 @@ export default class WeatherCard extends Component {
           <span className="weather-card__content_date"></span>
           <div className="weather-card__content_display">
             <div className="weather-card__content_emoji">
-              <p className="weather-card__content_emoji_p">{sky}</p>
+              <p className="weather-card__content_emoji_p">{weatherName}</p>
             </div>
             <div className="weather-card__content_temp">
               <p className="weather-card__content_temp_p">{temperature}&deg;</p>
