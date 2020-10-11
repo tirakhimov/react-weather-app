@@ -7,7 +7,7 @@ export default function Date() {
   const dateFormatter = new DateFormatter();
 
   return (
-    <div className='weather-card__content_date'>
+    <div>
       <span>{dateFormatter.formatDate()}</span>
     </div>
   )
