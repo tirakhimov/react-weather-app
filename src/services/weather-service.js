@@ -5,7 +5,7 @@ export default class WeatherService {
   networkingService = new NetworkingService()
 
   getWeatherForToday(cityName) {
-    return this.networkingService.getWeatherInfo(cityName).then((body) => {
+    return this.networkingService.getWeather(cityName).then((body) => {
       const weatherName = body.weather[0].main;
       const temperature = Math.round(body.main.temp);
 
