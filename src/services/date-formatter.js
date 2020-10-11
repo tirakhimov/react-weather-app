@@ -1,7 +1,12 @@
 export default class DateFormatter {
 
-  daysOfWeekArray = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
-  monthsArray = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
+  daysOfWeekArray = [
+    'Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'
+  ];
+  monthsArray = [
+    'Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля',
+    'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'
+  ];
   date = new Date();
 
   configureDate() {
@@ -15,6 +20,7 @@ export default class DateFormatter {
 
   formatDate() {
     const dateObject = this.configureDate();
-    return `${dateObject.dayOfWeek}, ${dateObject.currentDate} ${dateObject.currentMonth} ${dateObject.currentTime}`;
+    const {dayOfWeek, currentDate, currentMonth, currentTime} = dateObject;
+    return `${dayOfWeek}, ${currentDate} ${currentMonth} ${currentTime}`;
   }
 }
