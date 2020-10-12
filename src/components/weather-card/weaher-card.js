@@ -22,7 +22,9 @@ export default class WeatherCard extends Component {
           temperature: response.temperature,
           weatherName: response.weatherName,
         })
-    }).catch();
+    }).catch((err) => {
+        throw new Error(err.message);
+      });
   }
 
   render() {
