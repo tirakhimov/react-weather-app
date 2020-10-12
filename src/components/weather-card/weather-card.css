@@ -31,3 +31,7 @@
 .weather-card__content_temp_p {
   font-size: 70px;
 }
+
+.capitalize {
+  text-transform: capitalize;
+}

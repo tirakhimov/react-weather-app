@@ -6,7 +6,7 @@ import CurrentDate from '../current-date/current-date.js';
 
 export default class WeatherCard extends Component {
 
-  state ={}
+  state = {}
 
   weatherService = new WeatherService()
 
@@ -35,7 +35,7 @@ export default class WeatherCard extends Component {
       <div>
         <div className="weather-card">
           <h3 className="weather-card__content_header">
-            Погода в {cityName}
+            Погода в <span className="capitalize">{cityName}</span>
           </h3>
           <SearchBar/>
           <CurrentDate />

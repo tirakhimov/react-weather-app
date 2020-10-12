@@ -7,9 +7,9 @@ export default class WeatherService {
   emojiService = new EmojiService()
 
   getWeatherForToday(cityName) {
-    return this.networkingService.getWeatherInfo(cityName).then((body) => {
-      const temperature = Math.round(body.main.temp);
+    return this.networkingService.getWeather(cityName).then((body) => {
       const weatherName = body.weather[0].main;
+      const temperature = Math.round(body.main.temp);
 
       return  {
         cityName: `${cityName}`,

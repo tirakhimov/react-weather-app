@@ -4,7 +4,7 @@ export default class NetworkingService {
   _apiKey = '725cc83d358bd4a0ea4c6dcd990a60fb';
   _proxy = 'https://cors-anywhere.herokuapp.com/';
 
-  async getWeatherInfo(cityName) {
+  async getWeather(cityName) {
     try {
       const response = await fetch(
         `${this._proxy}${this._apiBase}${cityName}&appid=${this._apiKey}&units=metric`

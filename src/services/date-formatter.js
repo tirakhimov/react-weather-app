@@ -12,7 +12,7 @@ export default class DateFormatter {
   formatDate() {
 
     let dayOfWeek = this._daysOfWeekArray[this.date.getDay()],
-        currentDate = this.date.getDate(),
+        dayOfMonth = this.date.getDate(),
         currentMonth = this._monthsArray[this.date.getMonth()],
         hour = this.date.getHours(),
         minutes = this.date.getMinutes()
@@ -20,6 +20,6 @@ export default class DateFormatter {
     hour = hour < 10 ? '0' + hour : hour;
     minutes = minutes < 10 ? '0' + minutes : minutes;
 
-    return `${dayOfWeek}, ${currentDate} ${currentMonth} ${hour}:${minutes}`;
+    return `${dayOfWeek}, ${dayOfMonth} ${currentMonth} ${hour}:${minutes}`;
   }
 }
