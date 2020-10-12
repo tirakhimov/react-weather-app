@@ -4,6 +4,7 @@ import WeatherCard from '../weather-card/weaher-card';
 import './app.css';
 
 class App extends Component {
+
   render() {
     return (
       <div className="container">

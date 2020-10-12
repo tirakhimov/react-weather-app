@@ -1,18 +1,17 @@
-import React from 'react';
+import React, {Component} from 'react';
 import SearchBar from '../search-bar/search-bar';
 import './weather-card.css';
+import WeatherService from "../../services/weather-service";
+import CurrentDate from '../current-date/current-date.js';
 
 export default class WeatherCard extends Component {
 
-  state ={}
+  state = {}
 
   weatherService = new WeatherService()
 
   componentDidMount() {
     this.updateState();
-    if (this.state.weatherName) {
-      document.title = `Погода в ${this.state.weatherName}`;
-    }
   }
 
   updateState() {
@@ -36,7 +35,7 @@ export default class WeatherCard extends Component {
       <div>
         <div className="weather-card">
           <h3 className="weather-card__content_header">
-            Погода в {cityName}
+            Погода в <span className="capitalize">{cityName}</span>
           </h3>
           <SearchBar/>
           <CurrentDate />
@@ -50,8 +49,6 @@ export default class WeatherCard extends Component {
           </div>
         </div>
       </div>
-    </div>
-  );
+    )
+  }
 }
-
-export default WeatherCard;
