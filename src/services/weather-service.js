@@ -1,5 +1,5 @@
 import NetworkingService from './networking-service';
-import EmojiConfigurator from "./emoji-configurator";
+import EmojiConfigurator from "./emoji-service";
 
 export default class WeatherService {
 
@@ -14,7 +14,7 @@ export default class WeatherService {
       return  {
         cityName: `${cityName}`,
         temperature: `${temperature}`,
-        weatherName: `${this.emojiConfigurator.configureEmoji(weatherName)}`,
+        weatherName: `${this.emojiConfigurator.setEmojiFor(weatherName)}`,
       };
     });
   }
