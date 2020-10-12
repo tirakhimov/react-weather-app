@@ -1,10 +1,10 @@
 import NetworkingService from './networking-service';
-import EmojiConfigurator from "./emoji-service";
+import EmojiService from "./emoji-service";
 
 export default class WeatherService {
 
   networkingService = new NetworkingService()
-  emojiConfigurator = new EmojiConfigurator()
+  emojiService = new EmojiService()
 
   getWeatherForToday(cityName) {
     return this.networkingService.getWeatherInfo(cityName).then((body) => {
@@ -14,7 +14,7 @@ export default class WeatherService {
       return  {
         cityName: `${cityName}`,
         temperature: `${temperature}`,
-        weatherName: `${this.emojiConfigurator.setEmojiFor(weatherName)}`,
+        weatherName: `${this.emojiService.setEmojiFor(weatherName)}`,
       };
     });
   }
