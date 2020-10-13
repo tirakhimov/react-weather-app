@@ -1,20 +1,16 @@
 export default class NetworkingService {
-
-  _apiBase = 'http://api.openweathermap.org/data/2.5/weather?q=';
-  _apiKey = '725cc83d358bd4a0ea4c6dcd990a60fb';
-  _proxy = 'https://cors-anywhere.herokuapp.com/';
+  constructor() {
+    this.apiBase = 'http://api.openweathermap.org/data/2.5/weather?q=';
+    this.apiKey = '725cc83d358bd4a0ea4c6dcd990a60fb';
+    this.proxy = 'https://cors-anywhere.herokuapp.com/';
+  }
 
   async getWeather(cityName) {
     try {
-      const response = await fetch(
-        `${this._proxy}${this._apiBase}${cityName}&appid=${this._apiKey}&units=metric`
-      );
+      const response = await fetch(`${this.apiBase}${cityName}&appid=${this.apiKey}&units=metric`);
       return await response.json();
     } catch (err) {
       throw new Error(err.message);
     }
   }
 }
-
-
-
