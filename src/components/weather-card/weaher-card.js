@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import SearchBar from '../search-bar/search-bar';
 import './weather-card.css';
 import WeatherService from "../../services/weather-service";
-import CurrentDate from '../current-date/current-date.js';
+import CurrentDate from '../current-date/current-date';
 
 export default class WeatherCard extends Component {
 
@@ -29,7 +29,7 @@ export default class WeatherCard extends Component {
 
   render() {
 
-    const {cityName, weatherName, temperature} = this.state;
+    const { cityName, weatherName, temperature } = this.state;
 
     return (
       <div>
@@ -37,7 +37,7 @@ export default class WeatherCard extends Component {
           <h3 className="weather-card__content_header">
             Погода в <span className="capitalize">{cityName}</span>
           </h3>
-          <SearchBar/>
+          <SearchBar />
           <CurrentDate />
           <div className="weather-card__content_display">
             <div className="weather-card__content_emoji">
