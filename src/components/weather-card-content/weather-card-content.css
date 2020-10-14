@@ -27,3 +27,8 @@
 .capitalize {
   text-transform: capitalize;
 }
+
+.weather-card__content_message {
+  margin-top: 10px;
+  color: red;
+}
