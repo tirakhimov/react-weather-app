@@ -4,7 +4,7 @@ import CurrentDate from '../current-date/current-date';
 
 import './weather-card-content.css';
 
-function WeatherCardContent({ weatherObject, onInputChange }) {
+function WeatherCardContent({ weatherObject, onInputChange, hasError }) {
   const { cityName, temperature, weatherName } = weatherObject;
 
   return (
@@ -16,8 +16,14 @@ function WeatherCardContent({ weatherObject, onInputChange }) {
         onInputSubmit={(inputValue) => onInputChange(inputValue)}
       />
       <CurrentDate />
+      {
+        hasError ? <div className="weather-card__content_message"><span>Введите правильное название города</span></div> : null
+      }
       <div className="weather-card__content_display">
         <div className="weather-card__content_emoji">
+          {
+            hasError ? <p className="weather-card__content_emoji_p">&#128533;</p> : null
+          }
           <p className="weather-card__content_emoji_p">{ weatherName }</p>
         </div>
         <div className="weather-card__content_temp">
