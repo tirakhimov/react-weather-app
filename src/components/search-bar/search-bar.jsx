@@ -8,7 +8,7 @@ export default class SearchBar extends Component {
 
     this.handleSubmit = (event) => {
       if (event.key === 'Enter') {
-        const inputValue = event.target.value;
+        const inputValue = event.target.value.replace(/ +/g, ' ').trim();
         onInputSubmit(inputValue);
         this.setState({
           inputValue: '',
