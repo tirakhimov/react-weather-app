@@ -62,9 +62,9 @@ export default class WeatherCard extends Component {
     return (
       <div className="weather-card">
         <WeatherCardContent
-          hasError={hasError}
           weatherObject={weatherObject}
           onInputChange={this.onInputChange}
+          hasError={hasError}
         />
       </div>
     );
