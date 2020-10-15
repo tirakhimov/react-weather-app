@@ -20,12 +20,10 @@ function WeatherCardContent({ weatherObject, onInputChange, hasError }) {
         hasError ? <div className="weather-card__content_message">Введите правильное название города</div> : null
       }
       <div className="weather-card__content_display">
-        <div className="weather-card__content_emoji">
-          {
-            hasError ? <p className="weather-card__content_emoji_p">&#128533;</p> : null
-          }
-          <p className="weather-card__content_emoji_p">{ weatherName }</p>
-        </div>
+        {
+          hasError ? <span role="img" className="weather-card__content_emoji">&#128533;</span> : null
+        }
+        <span role="img" className="weather-card__content_emoji">{ weatherName }</span>
         <div className="weather-card__content_temp">
           <p className="weather-card__content_temp_p">
             { temperature }
