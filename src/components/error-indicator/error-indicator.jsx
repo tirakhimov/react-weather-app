@@ -1,11 +1,11 @@
 import React from 'react';
 
-import './error-component.css';
+import './error-indicator.css';
 
-function ErrorComponent({ label }) {
+function ErrorIndicator({errorLabel}) {
   return (
     <div>
-      <div className="weather-card__content_message">{label}</div>
+      <div className="weather-card__content_message">{errorLabel}</div>
       <span
         role="img"
         aria-label="Sad emoji"
@@ -17,4 +17,4 @@ function ErrorComponent({ label }) {
   );
 }
 
-export default ErrorComponent;
+export default ErrorIndicator;
