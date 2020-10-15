@@ -9,7 +9,7 @@ export default class WeatherCard extends Component {
     super(props);
     this.state = {
       weatherObject: {},
-      hasError: '',
+      hasError: false,
     };
     this.weatherService = new WeatherService();
     this.onInputChange = (inputValue) => {
