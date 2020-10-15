@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from '../search-bar/search-bar';
 import CurrentDate from '../current-date/current-date';
+import ErrorComponent from '../error-component/error-component';
 
 import './weather-card-content.css';
 
@@ -17,20 +18,9 @@ function WeatherCardContent({ weatherObject, onInputChange, hasError }) {
       />
       <CurrentDate />
       {
-        hasError ? <div className="weather-card__content_message">Введите правильное название города</div> : null
+        hasError ? <ErrorComponent label="Такого города не сущетвует" /> : null
       }
       <div className="weather-card__content_display">
-        {
-          hasError ? (
-            <span
-              role="img"
-              aria-label="Sad emoji"
-              className="weather-card__content_emoji"
-            >
-              &#128533;
-            </span>
-          ) : null
-        }
         <span
           role="img"
           aria-label="Weather emoji"
