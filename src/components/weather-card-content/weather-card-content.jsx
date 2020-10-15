@@ -17,7 +17,7 @@ function WeatherCardContent({ weatherObject, onInputChange, hasError }) {
       />
       <CurrentDate />
       {
-        hasError ? <span className="weather-card__content_message">Введите правильное название города</span> : null
+        hasError ? <div className="weather-card__content_message">Введите правильное название города</div> : null
       }
       <div className="weather-card__content_display">
         <div className="weather-card__content_emoji">
