@@ -7,11 +7,14 @@ import './weather-card.css';
 export default class WeatherCard extends Component {
   constructor(props) {
     super(props);
+
+    this.weatherService = new WeatherService();
+
     this.state = {
       weatherObject: {},
       hasError: false,
     };
-    this.weatherService = new WeatherService();
+
     this.onInputChange = (inputValue) => {
       this.setState({
         weatherObject: {
