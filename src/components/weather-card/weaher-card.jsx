@@ -13,21 +13,23 @@ export default class WeatherCard extends Component {
     this.state = {
       weatherObject: {},
       hasError: false,
+      id: 0,
     };
 
     this.onInputChange = (inputValue) => {
-      this.setState({
+      this.setState((state) => ({
         weatherObject: {
           cityName: inputValue,
         },
-      });
+        id: state.id + 1,
+      }));
     };
   }
 
   componentDidUpdate(_, prevState) {
-    const { weatherObject } = this.state;
+    const { id } = this.state;
 
-    if (weatherObject.cityName !== prevState.weatherObject.cityName) {
+    if (id !== prevState.id) {
       this.updateState().then(() => {
         this.setDocumentTitle();
       });
