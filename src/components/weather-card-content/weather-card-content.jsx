@@ -1,34 +1,23 @@
 import React from 'react';
 import SearchBar from '../search-bar/search-bar';
 import CurrentDate from '../current-date/current-date';
+import ErrorIndicator from '../error-indicator/error-indicator';
+import EmojiAndTemperature from '../emoji-and-temperature/emoji-and-temperature';
 
 import './weather-card-content.css';
 
-function WeatherCardContent({ weatherObject, onInputChange }) {
-  const { cityName, temperature, weatherName } = weatherObject;
+export default function WeatherCardContent({ weatherObject, onInputChange, hasError }) {
+  const { cityName, ...tempAndWeatherName } = weatherObject;
+  const errorLabel = 'Такого города не существует';
 
   return (
     <>
       <h3 className="weather-card__content_header">
         Погода в <span className="capitalize">{cityName}</span>
       </h3>
-      <SearchBar
-        onInputSubmit={(inputValue) => onInputChange(inputValue)}
-      />
-      <CurrentDate />
-      <div className="weather-card__content_display">
-        <div className="weather-card__content_emoji">
-          <p className="weather-card__content_emoji_p">{ weatherName }</p>
-        </div>
-        <div className="weather-card__content_temp">
-          <p className="weather-card__content_temp_p">
-            { temperature }
-            { temperature ? <span>&deg;</span> : null}
-          </p>
-        </div>
-      </div>
+      <SearchBar onInputSubmit={(inputValue) => onInputChange(inputValue)} />
+      { hasError ? <ErrorIndicator errorLabel={errorLabel} /> : <CurrentDate /> }
+      <EmojiAndTemperature tempAndWeatherName={tempAndWeatherName} />
     </>
   );
 }
-
-export default WeatherCardContent;

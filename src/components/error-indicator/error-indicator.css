@@ -1,0 +1,9 @@
+.weather-card__content_message {
+  margin-top: 10px;
+  color: red;
+}
+
+.weather-card__content_emoji {
+  font-size: 90px;
+  margin-right: 50px;
+}

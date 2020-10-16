@@ -7,10 +7,14 @@ import './weather-card.css';
 export default class WeatherCard extends Component {
   constructor(props) {
     super(props);
+
+    this.weatherService = new WeatherService();
+
     this.state = {
       weatherObject: {},
+      hasError: false,
     };
-    this.weatherService = new WeatherService();
+
     this.onInputChange = (inputValue) => {
       this.setState({
         weatherObject: {
@@ -46,18 +50,25 @@ export default class WeatherCard extends Component {
             temperature: response.temperature,
             weatherName: response.weatherName,
           },
+          hasError: false,
         });
-      }).catch((err) => {
-        throw new Error(err.message);
+      }).catch(() => {
+        this.setState({
+          hasError: true,
+        });
       });
   }
 
   render() {
-    const { weatherObject } = this.state;
+    const { weatherObject, hasError } = this.state;
 
     return (
       <div className="weather-card">
-        <WeatherCardContent weatherObject={weatherObject} onInputChange={this.onInputChange} />
+        <WeatherCardContent
+          weatherObject={weatherObject}
+          onInputChange={this.onInputChange}
+          hasError={hasError}
+        />
       </div>
     );
   }
