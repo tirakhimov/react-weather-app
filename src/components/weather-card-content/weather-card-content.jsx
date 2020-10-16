@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from '../search-bar/search-bar';
 import CurrentDate from '../current-date/current-date';
 import ErrorIndicator from '../error-indicator/error-indicator';
+import EmojiAndTemperature from '../emoji-and-temperature/emoji-and-temperature';
 
 import './weather-card-content.css';
 
@@ -20,24 +21,3 @@ export default function WeatherCardContent({ weatherObject, onInputChange, hasEr
     </>
   );
 }
-
-const EmojiAndTemperature = ({ tempAndWeatherName }) => {
-  const {weatherName, temperature} = tempAndWeatherName;
-  return (
-    <div className="weather-card__content_display">
-      <span
-        role="img"
-        aria-label="Weather emoji"
-        className="weather-card__content_emoji"
-      >
-        {weatherName}
-      </span>
-      <div className="weather-card__content_temp">
-        <p className="weather-card__content_temp_p">
-          {temperature}
-          {temperature ? <span>&deg;</span> : null}
-        </p>
-      </div>
-    </div>
-  );
-};
