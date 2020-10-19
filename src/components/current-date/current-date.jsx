@@ -1,13 +1,10 @@
 import React from 'react';
 import './current-date.css';
-import DateFormatter from '../../services/date-formatter';
 
-export default function CurrentDate() {
-  const dateFormatter = new DateFormatter();
-
+export default function CurrentDate({ currentDate }) {
   return (
     <div className="weather-card__content_date">
-      <span>{dateFormatter.formatDate()}</span>
+      <span>{currentDate}</span>
     </div>
   );
 }

@@ -14,6 +14,7 @@ export default class WeatherCard extends Component {
       weatherObject: {},
       hasError: false,
       id: 0,
+      currentDate: new DateFormatter().formatDate(),
     };
 
     this.onInputChange = (inputValue) => {
@@ -63,6 +64,7 @@ export default class WeatherCard extends Component {
 
   render() {
     const { weatherObject, hasError } = this.state;
+    const { weatherObject, hasError, currentDate } = this.state;
 
     return (
       <div className="weather-card">
@@ -70,6 +72,7 @@ export default class WeatherCard extends Component {
           weatherObject={weatherObject}
           onInputChange={this.onInputChange}
           hasError={hasError}
+          currentDate={currentDate}
         />
       </div>
     );
