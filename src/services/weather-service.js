@@ -8,15 +8,18 @@ export default class WeatherService {
   }
 
   getWeatherForToday(cityName) {
-    return this.networkingService.getWeather(cityName).then((body) => {
-      const weatherName = body.weather[0].main;
-      const temperature = Math.round(body.main.temp);
+    return this.networkingService
+      .getWeather(cityName)
+      .then((response) => {
+        const cityName = response.name;
+        const weatherName = response.weather[0].main;
+        const temperature = Math.round(response.main.temp);
 
-      return {
-        cityName: `${cityName}`,
-        temperature: `${temperature}`,
-        weatherName: `${this.emojiService.setEmojiFor(weatherName)}`,
-      };
-    });
+        return {
+          cityName: `${cityName}`,
+          temperature: `${temperature}`,
+          weatherName: `${this.emojiService.setEmojiFor(weatherName)}`,
+        };
+      });
   }
 }

@@ -1,11 +1,9 @@
 import React from 'react';
-import capitalizeFirstLetter from '../../extensions/capitalizeFirstLetter';
 
 export default function WeatherCardHeader({ cityName, hasError }) {
-  const capitalizedCityName = capitalizeFirstLetter(cityName);
   const defaultHeader = 'Введите город';
   const headerAfterError = 'Упс... Что-то пошло не так';
-  const headerAfterRequest = `Погода в ${capitalizedCityName}`;
+  const headerAfterRequest = `Погода в ${cityName}`;
 
   function headerSwitcher(error) {
     if (error) {
