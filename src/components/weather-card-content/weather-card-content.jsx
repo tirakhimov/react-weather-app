@@ -6,7 +6,9 @@ import EmojiAndTemperature from '../emoji-and-temperature/emoji-and-temperature'
 
 import './weather-card-content.css';
 
-export default function WeatherCardContent({ weatherObject, onInputChange, hasError }) {
+export default function WeatherCardContent({
+  weatherObject, onInputChange, hasError, currentDate,
+}) {
   const { cityName, ...tempAndWeatherName } = weatherObject;
   const errorLabel = 'Такого города не существует';
 
