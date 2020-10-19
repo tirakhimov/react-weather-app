@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import WeatherService from '../../services/weather-service';
 import WeatherCardContent from '../weather-card-content/weather-card-content';
+import DateFormatter from '../../services/date-formatter';
 
 import './weather-card.css';
 
@@ -13,24 +14,24 @@ export default class WeatherCard extends Component {
     this.state = {
       weatherObject: {},
       hasError: false,
-      id: 0,
+      requestTime: new Date().getTime(),
       currentDate: new DateFormatter().formatDate(),
     };
 
     this.onInputChange = (inputValue) => {
-      this.setState((state) => ({
+      this.setState({
         weatherObject: {
           cityName: inputValue,
         },
-        id: state.id + 1,
-      }));
+        requestTime: new Date().getTime(),
+      });
     };
   }
 
   componentDidUpdate(_, prevState) {
-    const { id } = this.state;
+    const { requestTime } = this.state;
 
-    if (id !== prevState.id) {
+    if (requestTime !== prevState.requestTime) {
       this.updateState().then(() => {
         this.setDocumentTitle();
       });
@@ -63,7 +64,6 @@ export default class WeatherCard extends Component {
   }
 
   render() {
-    const { weatherObject, hasError } = this.state;
     const { weatherObject, hasError, currentDate } = this.state;
 
     return (
