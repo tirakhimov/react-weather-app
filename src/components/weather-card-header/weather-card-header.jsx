@@ -5,8 +5,8 @@ export default function WeatherCardHeader({ cityName, hasError }) {
   const headerTextAfterError = 'Упс... Что-то пошло не так';
   const headerTextAfterRequest = `Погода в ${cityName}`;
 
-  function headerSwitcher(error) {
-    if (error) {
+  function headerSwitcher() {
+    if (hasError) {
       return headerTextAfterError;
     }
     if (cityName == null) {
@@ -16,6 +16,6 @@ export default function WeatherCardHeader({ cityName, hasError }) {
   }
 
   return (
-    <h3 className="weather-card__content_header">{headerSwitcher(hasError)}</h3>
+    <h3 className="weather-card__content_header">{headerSwitcher()}</h3>
   );
 }
