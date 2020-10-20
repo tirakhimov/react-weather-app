@@ -15,12 +15,10 @@ export default function WeatherCardContent({
 
   return (
     <>
-      <h3 className="weather-card__content_header">
-        Погода в <span className="capitalize">{cityName}</span>
-      </h3>
       <WeatherCardHeader cityName={cityName} hasError={hasError} />
       <SearchBar onInputSubmit={(inputValue) => onInputChange(inputValue)} />
-      { hasError ? <ErrorIndicator errorLabel={errorLabel} /> : <CurrentDate /> }
+      { hasError ? <ErrorIndicator errorLabel={errorLabel} /> : null }
+      { tempAndWeatherName.temperature ? <CurrentDate currentDate={currentDate} /> : null }
       <EmojiAndTemperature tempAndWeatherName={tempAndWeatherName} />
     </>
   );
