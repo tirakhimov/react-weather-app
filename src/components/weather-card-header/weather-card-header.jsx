@@ -9,7 +9,7 @@ export default function WeatherCardHeader({ cityName, hasError }) {
     if (error) {
       return headerTextAfterError;
     }
-    if (!cityName) {
+    if (cityName == null) {
       return defaultHeaderText;
     }
     return headerTextAfterRequest;
