@@ -1,18 +1,18 @@
 import React from 'react';
 
 export default function WeatherCardHeader({ cityName, hasError }) {
-  const defaultHeader = 'Введите город';
-  const headerAfterError = 'Упс... Что-то пошло не так';
-  const headerAfterRequest = `Погода в ${cityName}`;
+  const defaultHeaderText = 'Введите город';
+  const headerTextAfterError = 'Упс... Что-то пошло не так';
+  const headerTextAfterRequest = `Погода в ${cityName}`;
 
   function headerSwitcher(error) {
     if (error) {
-      return headerAfterError;
+      return headerTextAfterError;
     }
     if (!cityName) {
-      return defaultHeader;
+      return defaultHeaderText;
     }
-    return headerAfterRequest;
+    return headerTextAfterRequest;
   }
 
   return (
