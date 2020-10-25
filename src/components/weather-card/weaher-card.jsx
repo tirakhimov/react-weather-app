@@ -69,8 +69,8 @@ export default class WeatherCard extends Component {
     const { weatherObject, hasError, currentDate } = this.state;
 
     return (
-      <Row>
-        <Col span={8} offset={8}>
+      <Row justify="center" align="middle">
+        <Col span={8}>
           <Card className="weather-card">
             <WeatherCardContent
               weatherObject={weatherObject}
