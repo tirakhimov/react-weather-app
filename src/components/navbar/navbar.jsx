@@ -1,27 +1,36 @@
 import React from 'react';
+import { Typography, Menu, Layout } from 'antd';
+
 import './navbar.css';
 
 function Navbar() {
+  const { Header } = Layout;
+  const { Text } = Typography;
+
   return (
-    <div className="navbar">
+    <Header className="navbar">
       <div className="navbar__logo">
         <a href="/#" className="link navbar__logo-link">
-          <h1>Weather App</h1>
+          <Text className="navbar__logo-text">Weather App</Text>
         </a>
       </div>
-      <div className="navbar__links">
-        <a href="/#" className="link navbar__link">
+      <Menu
+        mode="horizontal"
+        theme="dark"
+        defaultSelectedKeys="today"
+        className="navbar__links"
+      >
+        <Menu.Item href="/#" key="today" className="link navbar__link">
           Сегодня
-        </a>
-        <a href="/#" className="link navbar__link">
+        </Menu.Item>
+        <Menu.Item href="/#" className="link navbar__link">
           Завтра
-        </a>
-        <a href="/#" className="link navbar__link">
+        </Menu.Item>
+        <Menu.Item href="/#" className="link navbar__link">
           Три дня
-        </a>
-      </div>
-      <button type="submit" className="button navbar__button">Login</button>
-    </div>
+        </Menu.Item>
+      </Menu>
+    </Header>
   );
 }
 

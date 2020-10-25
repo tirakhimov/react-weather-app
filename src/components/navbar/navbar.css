@@ -1,36 +1,16 @@
 .navbar {
+  width: 100%;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+.navbar__logo-text {
+  color: white;
+  font-size: 2rem;
+}
+
 .navbar__links {
-  margin-right: auto;
-  margin-left: 50px;
-  font-size: 18px;
-}
-
-.navbar__link:not(:last-child) {
-  margin-right: 10px;
-}
-
-.link {
-  text-decoration: none;
-  color: #000;
-}
-
-.navbar__logo-link {
-  color: #4977cc;
-}
-
-.link:hover {
-  color: #4977cc;
-}
-
-.button {
-  padding: 10px;
-  border: 1px solid #4977cc;
-  border-radius: 5px;
-  color: #4977cc;
-  font-size: 18px;
+  flex-grow: 0.9;
 }
