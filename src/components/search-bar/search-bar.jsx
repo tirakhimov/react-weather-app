@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Input } from 'antd';
 import './search-bar.css';
 
 export default class SearchBar extends Component {
@@ -28,10 +29,7 @@ export default class SearchBar extends Component {
 
     return (
       <div className="weather-card__content_input-wrapper">
-        <span role="img" aria-label="round pushpin">
-          &#128205;
-        </span>
-        <input
+        <Input
           className="input weather-card__content_input"
           type="text"
           placeholder="Поиск города или места"
