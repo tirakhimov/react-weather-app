@@ -1,4 +1,10 @@
-.container {
-  max-width: 1200px;
-  margin: auto;
+.content {
+  padding: 24px 50px;
+  height: 480px;
+  background-color: white;
+}
+
+.footer {
+  text-align: center;
+  background-color: white;
 }
