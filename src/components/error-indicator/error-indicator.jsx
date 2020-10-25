@@ -14,13 +14,13 @@ function ErrorIndicator({ errorLabel }) {
       >
         {errorLabel}
       </Text>
-      <Text
+      <span
         role="img"
         aria-label="Sad emoji"
         className="weather-card__content_emoji"
       >
         &#128533;
-      </Text>
+      </span>
     </div>
   );
 }
