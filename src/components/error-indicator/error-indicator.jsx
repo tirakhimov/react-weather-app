@@ -7,7 +7,7 @@ function ErrorIndicator({ errorLabel }) {
   const { Text } = Typography;
 
   return (
-    <div className="weather-card__content_">
+    <div className="weather-card__content">
       <Text
         className="weather-card__content_message"
         type="danger"
