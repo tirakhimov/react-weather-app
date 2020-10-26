@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Card, Row, Col } from 'antd';
+
 import WeatherService from '../../services/weather-service';
 import WeatherCardContent from '../weather-card-content/weather-card-content';
 import DateFormatter from '../../services/date-formatter';
@@ -67,14 +69,18 @@ export default class WeatherCard extends Component {
     const { weatherObject, hasError, currentDate } = this.state;
 
     return (
-      <div className="weather-card">
-        <WeatherCardContent
-          weatherObject={weatherObject}
-          onInputChange={this.onInputChange}
-          hasError={hasError}
-          currentDate={currentDate}
-        />
-      </div>
+      <Row justify="center" align="middle">
+        <Col span={8}>
+          <Card className="weather-card">
+            <WeatherCardContent
+              weatherObject={weatherObject}
+              onInputChange={this.onInputChange}
+              hasError={hasError}
+              currentDate={currentDate}
+            />
+          </Card>
+        </Col>
+      </Row>
     );
   }
 }

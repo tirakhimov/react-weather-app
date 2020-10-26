@@ -1,18 +1,8 @@
 .weather-card__content_display {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 250px;
-  max-height: 90px;
-  margin: 40px;
-  margin-top: 60px;
+  font-size: 3rem;
 }
 
 .weather-card__content_emoji {
-  font-size: 90px;
   margin-right: 50px;
-}
-
-.weather-card__content_temp_p {
-  font-size: 70px;
 }

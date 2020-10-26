@@ -1,11 +1,19 @@
 import React from 'react';
+import { Typography } from 'antd';
 
 import './error-indicator.css';
 
-function ErrorIndicator({errorLabel}) {
+function ErrorIndicator({ errorLabel }) {
+  const { Text } = Typography;
+
   return (
-    <div>
-      <div className="weather-card__content_message">{errorLabel}</div>
+    <div className="weather-card__content">
+      <Text
+        className="weather-card__content_message"
+        type="danger"
+      >
+        {errorLabel}
+      </Text>
       <span
         role="img"
         aria-label="Sad emoji"

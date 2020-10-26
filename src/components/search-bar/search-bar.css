@@ -1,12 +1,7 @@
 .weather-card__content_input-wrapper {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  width: 250px;
 }
-
 .weather-card__content_input {
-  width: 100%;
-  border: none;
-  font-size: 16px;
-  padding: 5px;
+  margin: 12px 0;
 }
