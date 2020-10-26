@@ -8,5 +8,5 @@
   min-width: 100%;
   display: grid;
   justify-items: center;
-  align-content: start;
+  align-content: center;
 }
