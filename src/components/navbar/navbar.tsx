@@ -3,7 +3,8 @@ import { Typography, Menu, Layout } from 'antd';
 
 import './navbar.css';
 
-function Navbar() {
+const Navbar: React.FC = (): JSX.Element => {
+
   const { Header } = Layout;
   const { Text } = Typography;
 
@@ -17,17 +18,17 @@ function Navbar() {
       <Menu
         mode="horizontal"
         theme="dark"
-        defaultSelectedKeys="today"
+        defaultSelectedKeys={["today"]}
         className="navbar__links"
       >
-        <Menu.Item href="/#" key="today" className="link navbar__link">
-          Сегодня
+        <Menu.Item key="today" className="link navbar__link">
+          <a href="/#">Сегодня</a>
         </Menu.Item>
-        <Menu.Item href="/#" className="link navbar__link">
-          Завтра
+        <Menu.Item className="link navbar__link">
+          <a href="/#">Завтра</a>
         </Menu.Item>
-        <Menu.Item href="/#" className="link navbar__link">
-          Три дня
+        <Menu.Item className="link navbar__link">
+          <a href="/#">Три дня</a>
         </Menu.Item>
       </Menu>
     </Header>
