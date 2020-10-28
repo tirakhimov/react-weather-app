@@ -1,10 +1,11 @@
 import React from 'react';
 import { Layout } from 'antd';
 import Navbar from '../navbar/navbar';
-import WeatherCard from '../weather-card/weaher-card';
+import WeatherCard from '../weather-card/weather-card';
 import './app.css';
 
-function App() {
+const App: React.FC = (): JSX.Element => {
+
   const { Footer, Content } = Layout;
 
   return (
