@@ -1,8 +1,5 @@
 .weather-card__content_display {
   display: flex;
   font-size: 3rem;
-}
-
-.weather-card__content_emoji {
-  margin-right: 50px;
+  width: 250px;
 }
