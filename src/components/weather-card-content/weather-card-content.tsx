@@ -4,22 +4,36 @@ import CurrentDate from '../current-date/current-date';
 import ErrorIndicator from '../error-indicator/error-indicator';
 import WeatherCardHeader from '../weather-card-header/weather-card-header';
 import EmojiAndTemperature from '../emoji-and-temperature/emoji-and-temperature';
+import { WeatherObject } from '../../interfaces/WeatherObject';
 
 import './weather-card-content.css';
 
-export default function WeatherCardContent({
-  weatherObject, onInputChange, hasError, currentDate,
-}) {
+export interface WeatherCardContentProps {
+  weatherObject: WeatherObject;
+  onInputChange: (inputValue: string) => void;
+  hasError: boolean;
+  currentDate: string;
+}
+
+const WeatherCardContent: React.FC<WeatherCardContentProps> = ({
+  weatherObject,
+  onInputChange,
+  hasError,
+  currentDate,
+}) => {
+
   const { cityName, ...tempAndWeatherName } = weatherObject;
   const errorLabel = 'Такого города не существует';
 
   return (
     <>
       <WeatherCardHeader cityName={cityName} hasError={hasError} />
-      <SearchBar onInputSubmit={(inputValue) => onInputChange(inputValue)} />
+      <SearchBar onInputSubmit={(inputValue): void => onInputChange(inputValue)} />
       { hasError ? <ErrorIndicator errorLabel={errorLabel} /> : null }
       { tempAndWeatherName.temperature ? <CurrentDate currentDate={currentDate} /> : null }
       <EmojiAndTemperature tempAndWeatherName={tempAndWeatherName} />
     </>
   );
 }
+
+export default WeatherCardContent;
