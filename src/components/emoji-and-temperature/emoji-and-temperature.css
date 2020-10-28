@@ -2,4 +2,9 @@
   display: flex;
   font-size: 3rem;
   width: 250px;
+  justify-content: center;
+}
+
+.weather-card__content_emoji {
+  margin-right: 2.5rem;
 }
