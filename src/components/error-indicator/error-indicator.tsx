@@ -3,7 +3,12 @@ import { Typography } from 'antd';
 
 import './error-indicator.css';
 
-function ErrorIndicator({ errorLabel }) {
+export interface ErrorIndicatorProps {
+  errorLabel: string;
+}
+
+const ErrorIndicator: React.FC<ErrorIndicatorProps> = ({ errorLabel }): JSX.Element => {
+
   const { Text } = Typography;
 
   return (
