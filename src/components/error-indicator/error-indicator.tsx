@@ -14,7 +14,7 @@ const ErrorIndicator: React.FC<ErrorIndicatorProps> = ({ errorLabel }): JSX.Elem
   return (
     <div className="weather-card__content">
       <Text
-        className="weather-card__content_message"
+        className="weather-card__content_error-message"
         type="danger"
       >
         {errorLabel}
@@ -22,7 +22,7 @@ const ErrorIndicator: React.FC<ErrorIndicatorProps> = ({ errorLabel }): JSX.Elem
       <span
         role="img"
         aria-label="Sad emoji"
-        className="weather-card__content_emoji"
+        className="weather-card__content_error-emoji"
       >
         &#128533;
       </span>
