@@ -1,2 +1,32 @@
-# react-weather-app
-A simple application built on React.
+# Weather App
+
+## Функции
+- [x] Приложение отображает погоду в разных городах.
+- [x] Реализована функция поиска конкретного города.
+
+## Технологии
+- [x] Приложение написано на библиотеке ([React](https://github.com/facebook/react)).
+- [x] Разрабатывается на ([TypeScript](https://github.com/microsoft/TypeScript)).
+- [x] Приложение использует библиотеку React UI компонентов ([Ant Design](https://github.com/ant-design/ant-design)).
+- [ ] В качестве менеджера состояния будет использоваться ([Redux](https://github.com/reduxjs/redux)).
+
+## Скриншоты
+<p align="center">
+  <img width="48%" src="https://user-images.githubusercontent.com/36644693/97494844-f361af00-1977-11eb-8057-19db0d9b4343.png">
+  <img width="48%" src="https://user-images.githubusercontent.com/36644693/97494847-f52b7280-1977-11eb-8078-3bec586000d1.png">
+
+</p>
+
+## Разработчики
+- [Timur Rakhimov](https://github.com/StayInLight)
+- [Denis Khisamiev](https://github.com/denkhis)
+- [Eugene Karambirov](https://github.com/Karambirov)
+
+## Запуск
+Для запуска введите следующие команды в терминале:
+
+```sh
+gh repo clone StayInLight/react-weather-app
+cd react-weather-app
+npm install; npm start
+```
