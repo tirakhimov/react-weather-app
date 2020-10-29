@@ -8,7 +8,7 @@
 - [x] Приложение написано на библиотеке [React](https://github.com/facebook/react).
 - [x] Разрабатывается на [TypeScript](https://github.com/microsoft/TypeScript).
 - [x] Приложение использует библиотеку UI компонентов [Ant Design](https://github.com/ant-design/ant-design).
-- [x] Данные погоды получаются с API [OpenWeather](https://openweathermap.org/api).
+- [x] Данные погоды получаются с API [OpenWeatherMap](https://openweathermap.org/api).
 - [ ] В качестве менеджера состояния будет использоваться [Redux](https://github.com/reduxjs/redux).
 - [ ] Планируется деплой на [Netlify](https://www.netlify.com/).
 
