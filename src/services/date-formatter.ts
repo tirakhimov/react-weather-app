@@ -1,8 +1,8 @@
 export default class DateFormatter {
 
-    private readonly daysOfWeekArray: string[];
-    private readonly monthsArray: string[];
-    private readonly date: Date;
+  private readonly daysOfWeekArray: string[];
+  private readonly monthsArray: string[];
+  private readonly date: Date;
 
   constructor() {
     this.daysOfWeekArray = [
@@ -22,8 +22,8 @@ export default class DateFormatter {
     const hours: number = this.date.getHours();
     const minutes: number = this.date.getMinutes();
 
-    const hoursToString = (hours: number): string  => hours < 10 ? `0${hours}` : `${hours}`;
-    const minutesToString = (minutes: number): string  => minutes < 10 ? `0${minutes}` : `${minutes}`;
+    const hoursToString = (hours: number): string => hours < 10 ? `0${hours}` : `${hours}`;
+    const minutesToString = (minutes: number): string => minutes < 10 ? `0${minutes}` : `${minutes}`;
 
     return `${dayOfWeek}, ${dayOfMonth} ${currentMonth} ${hoursToString(hours)}:${minutesToString(minutes)}`;
   }
