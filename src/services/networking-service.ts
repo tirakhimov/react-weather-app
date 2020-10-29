@@ -1,4 +1,4 @@
-type WeatherType = {
+export type WeatherType = {
   main: string;
 }
 
