@@ -4,10 +4,10 @@ import { Typography } from 'antd';
 import './error-indicator.css';
 
 export interface ErrorIndicatorProps {
-  errorLabel: string;
+  errorMessage: string;
 }
 
-const ErrorIndicator: React.FC<ErrorIndicatorProps> = ({ errorLabel }): JSX.Element => {
+const ErrorIndicator: React.FC<ErrorIndicatorProps> = ({ errorMessage }): JSX.Element => {
 
   const { Text } = Typography;
 
@@ -17,15 +17,14 @@ const ErrorIndicator: React.FC<ErrorIndicatorProps> = ({ errorLabel }): JSX.Elem
         className="weather-card__content_error-message"
         type="danger"
       >
-        {errorLabel}
+        {errorMessage}
       </Text>
-      <span
-        role="img"
+      <Text
         aria-label="Sad emoji"
         className="weather-card__content_error-emoji"
       >
         &#128533;
-      </span>
+      </Text>
     </div>
   );
 }
