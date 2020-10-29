@@ -86,7 +86,7 @@ export default class WeatherCard extends Component<{}, WeatherCardState> {
 
     return (
       <Row justify="center" align="middle">
-        <Col span={9}>
+        <Col span={8}>
           <Card className="weather-card">
             <WeatherCardContent
               weatherObject={weatherObject}
