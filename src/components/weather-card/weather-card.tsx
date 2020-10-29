@@ -8,16 +8,16 @@ import { WeatherObject } from "../../interfaces/WeatherObject";
 
 import './weather-card.css';
 
-interface WeatherCardState {
+export interface WeatherCardState {
   weatherObject: WeatherObject;
-  hasError: boolean;
+  hasError?: Error;
   requestTime: number;
   currentDate: string;
 }
 
 export default class WeatherCard extends Component<{}, WeatherCardState> {
 
-  state: WeatherCardState;
+  readonly state: WeatherCardState;
   private weatherService: WeatherService;
   private readonly onInputChange: (inputValue: string) => void;
 
@@ -28,7 +28,7 @@ export default class WeatherCard extends Component<{}, WeatherCardState> {
 
     this.state = {
       weatherObject: {},
-      hasError: false,
+      hasError: undefined,
       requestTime: new Date().getTime(),
       currentDate: new DateFormatter().formatDate(),
     };
@@ -62,7 +62,7 @@ export default class WeatherCard extends Component<{}, WeatherCardState> {
   updateState(): Promise<void> | undefined {
     const { weatherObject } = this.state;
 
-    if (weatherObject.cityName) {
+    if (weatherObject.cityName !== undefined) {
       return this.weatherService.getWeatherForToday(weatherObject.cityName)
           .then((response) => {
             this.setState({
@@ -71,11 +71,11 @@ export default class WeatherCard extends Component<{}, WeatherCardState> {
                 temperature: response.temperature,
                 weatherName: response.weatherName,
               },
-              hasError: false,
+              hasError: undefined,
             });
-          }).catch(() => {
+          }).catch((error) => {
             this.setState({
-              hasError: true,
+              hasError: error,
             });
           });
     }

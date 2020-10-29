@@ -11,7 +11,7 @@ import './weather-card-content.css';
 export interface WeatherCardContentProps {
   weatherObject: WeatherObject;
   onInputChange: (inputValue: string) => void;
-  hasError: boolean;
+  hasError?: Error;
   currentDate: string;
 }
 
@@ -23,13 +23,13 @@ const WeatherCardContent: React.FC<WeatherCardContentProps> = ({
 }) => {
 
   const { cityName, ...tempAndWeatherName } = weatherObject;
-  const errorLabel = 'Такого города не существует';
+  const errorMessage = 'Такого города не существует';
 
   return (
     <>
       <WeatherCardHeader cityName={cityName} hasError={hasError} />
       <SearchBar onInputSubmit={(inputValue): void => onInputChange(inputValue)} />
-      { hasError ? <ErrorIndicator errorLabel={errorLabel} /> : null }
+      { hasError ? <ErrorIndicator errorMessage={errorMessage} /> : null }
       { tempAndWeatherName.temperature ? <CurrentDate currentDate={currentDate} /> : null }
       <EmojiAndTemperature tempAndWeatherName={tempAndWeatherName} />
     </>
