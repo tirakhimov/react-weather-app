@@ -2,12 +2,12 @@ import React from 'react';
 import './weather-card-header.css';
 import { Typography } from 'antd';
 
-export interface WeatherCardHeader {
+export interface WeatherCardHeaderProps {
   cityName?: string;
   hasError: boolean;
 }
 
-const WeatherCardHeader: React.FC<WeatherCardHeader> = ({ cityName, hasError }) => {
+const WeatherCardHeader: React.FC<WeatherCardHeaderProps> = ({ cityName, hasError }) => {
 
   const { Text } = Typography;
 
