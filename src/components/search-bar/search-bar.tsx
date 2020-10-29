@@ -1,4 +1,4 @@
-import React, { Component, KeyboardEvent, ChangeEvent }from 'react';
+import React, { Component, KeyboardEvent, ChangeEvent } from 'react';
 import { Input } from 'antd';
 import './search-bar.css';
 
@@ -12,7 +12,7 @@ export interface SearchBarState {
 
 export default class SearchBar extends Component<SearchBarProps, SearchBarState> {
 
-  state: SearchBarState;
+  readonly state: SearchBarState;
   private readonly handleSubmit: (event: KeyboardEvent<HTMLInputElement>) => void;
   private readonly handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
 
