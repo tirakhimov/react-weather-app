@@ -22,8 +22,10 @@ export default class SearchBar extends Component<SearchBarProps, SearchBarState>
 
     this.handleSubmit = (event): void => {
       if (event.key === 'Enter') {
-        const inputValue = event.currentTarget.value.replace(/ +/g, ' ').trim();
-        props.onInputSubmit(inputValue);
+        const { onInputSubmit } = this.props;
+        const inputValue: string = event.currentTarget.value.replace(/ +/g, ' ').trim();
+
+        onInputSubmit(inputValue);
         this.setState({
           inputValue: '',
         });
