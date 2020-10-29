@@ -4,12 +4,13 @@ import { WeatherObject } from "../interfaces/WeatherObject";
 
 export default class WeatherService {
 
-  private networkingService: NetworkingService
-  private emojiService: EmojiService
+  private readonly networkingService: NetworkingService;
+  private readonly emojiService: EmojiService;
 
-  constructor() {
-    this.networkingService = new NetworkingService();
-    this.emojiService = new EmojiService();
+  constructor(networkingService: NetworkingService = new NetworkingService(),
+              emojiService: EmojiService = new EmojiService()) {
+    this.networkingService = networkingService;
+    this.emojiService = emojiService;
   }
 
   getWeatherForToday(cityName: string): Promise<WeatherObject> {
