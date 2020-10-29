@@ -5,10 +5,12 @@
 - [x] Реализована функция поиска конкретного города.
 
 ## Технологии
-- [x] Приложение написано на библиотеке ([React](https://github.com/facebook/react)).
-- [x] Разрабатывается на ([TypeScript](https://github.com/microsoft/TypeScript)).
-- [x] Приложение использует библиотеку React UI компонентов ([Ant Design](https://github.com/ant-design/ant-design)).
-- [ ] В качестве менеджера состояния будет использоваться ([Redux](https://github.com/reduxjs/redux)).
+- [x] Приложение написано на библиотеке [React](https://github.com/facebook/react).
+- [x] Разрабатывается на [TypeScript](https://github.com/microsoft/TypeScript).
+- [x] Приложение использует библиотеку UI компонентов [Ant Design](https://github.com/ant-design/ant-design).
+- [x] Данные погоды получаются с API [OpenWeather](https://openweathermap.org/api).
+- [ ] В качестве менеджера состояния будет использоваться [Redux](https://github.com/reduxjs/redux).
+- [ ] Планируется деплой на [Netlify](https://www.netlify.com/).
 
 ## Скриншоты
 <p align="center">
@@ -23,8 +25,11 @@
 - [Eugene Karambirov](https://github.com/Karambirov)
 
 ## Запуск
-Для запуска введите следующие команды в терминале:
+Для запуска приложения требуется установить:
+- [Node.js](https://nodejs.org/en/)
+- [GitHub CLI](https://github.com/cli/cli)
 
+Далее ввести команды в терминал:
 ```sh
 gh repo clone StayInLight/react-weather-app
 cd react-weather-app
