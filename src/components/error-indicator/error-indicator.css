@@ -1,3 +1,7 @@
 .weather-card__content_message {
   margin-right: 0.5rem;
 }
+
+.weather-card__content_error-emoji {
+  margin-left: 0.5rem;
+}

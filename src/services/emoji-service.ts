@@ -1,4 +1,11 @@
+export interface WeatherEmojisObject {
+  [key: string]: string;
+}
+
 export default class EmojiService {
+
+  private readonly weatherEmojisObject: WeatherEmojisObject;
+
   constructor() {
     this.weatherEmojisObject = {
       Thunderstorm: '⛈️',
@@ -18,7 +25,7 @@ export default class EmojiService {
     };
   }
 
-  setEmojiFor(weatherName) {
+  setEmojiFor(weatherName: string): string {
     return this.weatherEmojisObject[weatherName];
   }
 }

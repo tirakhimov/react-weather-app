@@ -2,7 +2,11 @@ import React from 'react';
 import { Typography } from 'antd';
 import './current-date.css';
 
-export default function CurrentDate({ currentDate }) {
+export interface CurrentDateProps {
+  currentDate: string;
+}
+
+const CurrentDate: React.FC<CurrentDateProps> = ({ currentDate }) => {
   const { Text } = Typography;
 
   return (
@@ -11,3 +15,4 @@ export default function CurrentDate({ currentDate }) {
     </div>
   );
 }
+export default CurrentDate;

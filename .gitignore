@@ -61,3 +61,4 @@ typings/
 .env
 build/
 .idea
+*.d.ts

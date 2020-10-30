@@ -2,15 +2,26 @@ import React from 'react';
 import { Typography } from "antd";
 import './emoji-and-temperature.css';
 
-export default function EmojiAndTemperature({ tempAndWeatherName }) {
+export type TempAndWeatherNameType = {
+  weatherName?: string;
+  temperature?: string;
+}
+
+export interface EmojiAndTemperatureProps {
+  tempAndWeatherName: TempAndWeatherNameType;
+}
+
+const EmojiAndTemperature: React.FC<EmojiAndTemperatureProps> = ({
+  tempAndWeatherName
+}): JSX.Element => {
+
   const { Text } = Typography;
 
-  const {weatherName, temperature} = tempAndWeatherName;
+  const { weatherName, temperature } = tempAndWeatherName;
 
   return (
     <div className="weather-card__content_display">
       <Text
-        role="img"
         aria-label="Weather emoji"
         className="weather-card__content_emoji"
       >
@@ -25,3 +36,5 @@ export default function EmojiAndTemperature({ tempAndWeatherName }) {
     </div>
   );
 }
+
+export default EmojiAndTemperature;

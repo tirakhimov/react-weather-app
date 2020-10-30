@@ -3,20 +3,18 @@ name: Node CI
 on: push
 
 jobs:
-  build:
+  typescript-error-reporter:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [14.x]
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install and build
-        run: |
-          npm install
-          npm run build
-        env:
-          CI: true
+      - name: Install dependencies
+        run: npm install
+      - name: TypeScript Error Reporter
+        uses: andoshin11/typescript-error-reporter-action@v1.0.2
