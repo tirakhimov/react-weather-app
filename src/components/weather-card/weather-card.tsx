@@ -75,6 +75,7 @@ export default class WeatherCard extends Component<{}, WeatherCardState> {
             });
           }).catch((error) => {
             this.setState({
+              weatherObject: {},
               error: error,
             });
           });
