@@ -16,7 +16,7 @@ const WeatherCardHeader: React.FC<WeatherCardHeaderProps> = ({ cityName, error }
   const headerTextAfterRequest = `Погода в ${cityName}`;
 
   function setHeader(): string {
-    if (error !== undefined) {
+    if (error) {
       return headerTextAfterError;
     }
     if (cityName == null) {
