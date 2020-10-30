@@ -4,10 +4,10 @@ import { Typography } from 'antd';
 
 export interface WeatherCardHeaderProps {
   cityName?: string;
-  hasError?: Error;
+  error?: Error;
 }
 
-const WeatherCardHeader: React.FC<WeatherCardHeaderProps> = ({ cityName, hasError }) => {
+const WeatherCardHeader: React.FC<WeatherCardHeaderProps> = ({ cityName, error }) => {
 
   const { Text } = Typography;
 
@@ -16,7 +16,7 @@ const WeatherCardHeader: React.FC<WeatherCardHeaderProps> = ({ cityName, hasErro
   const headerTextAfterRequest = `Погода в ${cityName}`;
 
   function setHeader(): string {
-    if (hasError !== undefined) {
+    if (error !== undefined) {
       return headerTextAfterError;
     }
     if (cityName == null) {
