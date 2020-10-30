@@ -10,7 +10,7 @@ import './weather-card.css';
 
 export interface WeatherCardState {
   weatherObject: WeatherObject;
-  hasError?: Error;
+  error?: Error;
   requestTime: number;
   currentDate: string;
 }
@@ -28,7 +28,7 @@ export default class WeatherCard extends Component<{}, WeatherCardState> {
 
     this.state = {
       weatherObject: {},
-      hasError: undefined,
+      error: undefined,
       requestTime: new Date().getTime(),
       currentDate: new DateFormatter().formatDate(),
     };
@@ -71,18 +71,18 @@ export default class WeatherCard extends Component<{}, WeatherCardState> {
                 temperature: response.temperature,
                 weatherName: response.weatherName,
               },
-              hasError: undefined,
+              error: undefined,
             });
           }).catch((error) => {
             this.setState({
-              hasError: error,
+              error: error,
             });
           });
     }
   }
 
   render(): JSX.Element {
-    const { weatherObject, hasError, currentDate } = this.state;
+    const { weatherObject, error, currentDate } = this.state;
 
     return (
       <Row justify="center" align="middle">
@@ -91,7 +91,7 @@ export default class WeatherCard extends Component<{}, WeatherCardState> {
             <WeatherCardContent
               weatherObject={weatherObject}
               onInputChange={this.onInputChange}
-              hasError={hasError}
+              error={error}
               currentDate={currentDate}
             />
           </Card>
