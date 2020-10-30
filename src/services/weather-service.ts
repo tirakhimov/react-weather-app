@@ -7,8 +7,10 @@ export default class WeatherService {
   private readonly networkingService: NetworkingService;
   private readonly emojiService: EmojiService;
 
-  constructor(networkingService: NetworkingService = new NetworkingService(),
-              emojiService: EmojiService = new EmojiService()) {
+  constructor(
+    networkingService: NetworkingService = new NetworkingService(),
+    emojiService: EmojiService = new EmojiService()
+  ) {
     this.networkingService = networkingService;
     this.emojiService = emojiService;
   }
