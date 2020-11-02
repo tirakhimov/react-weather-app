@@ -1,103 +1,72 @@
-import React, { Component } from 'react';
-import { Card, Row, Col } from 'antd';
-
-import WeatherService from '../../services/weather-service';
+import React, {useEffect, useState} from 'react';
+import { Card, Col, Row } from 'antd';
 import WeatherCardContent from '../weather-card-content/weather-card-content';
-import DateFormatter from '../../services/date-formatter';
 import { WeatherObject } from "../../interfaces/WeatherObject";
+import WeatherService from "../../services/weather-service";
+import DateFormatter from "../../services/date-formatter";
 
 import './weather-card.css';
 
-export interface WeatherCardState {
-  weatherObject: WeatherObject;
-  error?: Error;
-  requestTime: number;
-  currentDate: string;
-}
+const dateFormatter = new DateFormatter();
+const weatherService = new WeatherService();
 
-export default class WeatherCard extends Component<{}, WeatherCardState> {
+const WeatherCard: React.FC = () => {
 
-  readonly state: WeatherCardState;
-  private weatherService: WeatherService;
-  private readonly onInputChange: (inputValue: string) => void;
+  const [ weatherObject, setWeatherObject ] = useState<WeatherObject>({});
+  const [ error, setError ] = useState<Error | undefined>(undefined);
+  const [ requestTime, setRequestTime ] = useState<number>(new Date().getTime());
+  const [ currentDate ] = useState<string>(dateFormatter.formatDate());
 
-  constructor(props: {}) {
-    super(props);
-
-    this.weatherService = new WeatherService();
-
-    this.state = {
-      weatherObject: {},
-      error: undefined,
-      requestTime: new Date().getTime(),
-      currentDate: new DateFormatter().formatDate(),
-    };
-
-    this.onInputChange = (inputValue): void => {
-      this.setState({
-        weatherObject: {
-          cityName: inputValue,
-        },
-        requestTime: new Date().getTime(),
-      });
-    };
-  }
-
-
-  componentDidUpdate(_: {}, prevState: WeatherCardState): void {
-    const { requestTime } = this.state;
-
-    if (requestTime !== prevState.requestTime) {
-      this.updateState()?.then(() => {
-        this.setDocumentTitle();
-      });
+  useEffect(() => {
+    const setDocumentTitle = (): void => {
+      document.title = `Погода в ${weatherObject.cityName}`;
     }
-  }
 
-  setDocumentTitle(): void {
-    const { weatherObject } = this.state;
-    document.title = `Погода в ${weatherObject.cityName}`;
-  }
-
-  updateState(): Promise<void> | undefined {
-    const { weatherObject } = this.state;
-
-    if (weatherObject.cityName !== undefined) {
-      return this.weatherService.getWeatherForToday(weatherObject.cityName)
+    const updateState = (): Promise<void> | undefined => {
+      if (weatherObject.cityName !== undefined) {
+        return weatherService.getWeatherForToday(weatherObject.cityName)
           .then((response) => {
-            this.setState({
-              weatherObject: {
+            setWeatherObject(() => {
+              return {
                 cityName: response.cityName,
                 temperature: response.temperature,
                 weatherName: response.weatherName,
-              },
-              error: undefined,
-            });
+              }
+            })
+            setError(undefined);
           }).catch((error) => {
-            this.setState({
-              weatherObject: {},
-              error: error,
+            setWeatherObject(() => {
+              return {}
             });
+            setError(error);
           });
+      }
     }
-  }
+    updateState()?.then(() => setDocumentTitle());
+  }, [weatherObject.cityName, requestTime]);
 
-  render(): JSX.Element {
-    const { weatherObject, error, currentDate } = this.state;
-
-    return (
-      <Row justify="center" align="middle">
-        <Col span={8}>
-          <Card className="weather-card">
-            <WeatherCardContent
-              weatherObject={weatherObject}
-              onInputChange={this.onInputChange}
-              error={error}
-              currentDate={currentDate}
-            />
-          </Card>
-        </Col>
-      </Row>
+  const onInputChange = (inputValue: string): void => {
+    setWeatherObject( () => {
+        return { cityName: inputValue};
+      }
     );
-  }
+    setRequestTime(new Date().getTime());
+  };
+
+  return (
+    <Row justify="center" align="middle">
+      <Col span={8}>
+        <Card className="weather-card">
+          <WeatherCardContent
+            weatherObject={weatherObject}
+            onInputChange={onInputChange}
+            error={error}
+            currentDate={currentDate}
+          />
+        </Card>
+      </Col>
+    </Row>
+  );
 }
+
+export default WeatherCard;
