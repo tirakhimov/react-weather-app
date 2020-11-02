@@ -17,7 +17,7 @@ const SearchBar: React.FC<SearchBarProps> = (props) => {
       const inputValue: string = event.currentTarget.value
         .replace(/ +/g, ' ').trim();
       onInputSubmit(inputValue);
-      setInputValue(inputValue);
+      setInputValue('');
     }
   }
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
