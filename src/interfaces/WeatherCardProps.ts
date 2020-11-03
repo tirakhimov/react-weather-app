@@ -1,6 +1,9 @@
+import {WeatherObject} from "./WeatherObject";
+
 export interface WeatherCardProps {
-  weatherObject: object;
-  error: undefined;
-  requestTime: number;
-  currentDate: string;
+  weatherObject?: WeatherObject;
+  inputValue?: string;
+  error?: undefined;
+  requestTime?: number;
+  currentDate?: string;
 }
