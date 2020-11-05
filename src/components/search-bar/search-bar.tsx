@@ -4,7 +4,7 @@ import { Input } from 'antd';
 import './search-bar.css';
 import {WeatherCardProps} from "../../interfaces/WeatherCardProps";
 import {connect} from "react-redux";
-import {fetchWeather, searchCity} from '../../actions/weather-card-actions';
+import {fetchWeather, searchCity} from '../../actions/actions';
 import {Action, Dispatch} from "redux";
 import {WeatherObject} from "../../interfaces/WeatherObject";
 
