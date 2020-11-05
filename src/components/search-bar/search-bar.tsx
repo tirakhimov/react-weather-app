@@ -1,41 +1,75 @@
-import React, { ChangeEvent, KeyboardEvent, useState } from 'react';
+import React, {ChangeEvent, Component, FormEvent} from 'react';
 import { Input } from 'antd';
 
 import './search-bar.css';
+import {WeatherCardProps} from "../../interfaces/WeatherCardProps";
+import {connect} from "react-redux";
+import {fetchWeather, searchCity} from '../../actions/weather-card-actions';
+import {Action, Dispatch} from "redux";
+import {WeatherObject} from "../../interfaces/WeatherObject";
 
 export interface SearchBarProps {
-  onInputSubmit: (inputValue: string) => void;
+  inputValue: string | undefined;
+  weatherObject: WeatherObject;
+  searchCity: (inputValue: string | undefined) => object;
+  fetchWeather: (inputValue: string | undefined) => object;
 }
 
-const SearchBar: React.FC<SearchBarProps> = (props) => {
+interface StateFromProps {
+  inputValue: string;
+  weatherObject: WeatherObject;
+}
 
-  const [inputValue, setInputValue] = useState<string>('');
+interface DispatchFromProps {
+  searchCity: (inputValue: string | undefined) => object;
+  fetchWeather: (inputValue: string | undefined) => object;
+}
 
-  const handleSubmit = (event: KeyboardEvent<HTMLInputElement>): void => {
-    if (event.key === 'Enter') {
-      const {onInputSubmit} = props;
-      const inputValue: string = event.currentTarget.value
+export class SearchBar extends Component<SearchBarProps> {
+
+  handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    if(this.props.inputValue) {
+      const inputValue: string | undefined = this.props.inputValue
         .replace(/ +/g, ' ').trim();
-      onInputSubmit(inputValue);
-      setInputValue('');
+      this.props.fetchWeather(inputValue);
     }
   }
-  const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    setInputValue(event.currentTarget.value);
+
+  handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    this.props.searchCity(e.currentTarget.value);
   }
 
-  return (
-    <div className="weather-card__content_input-wrapper">
-      <Input
-        className="input weather-card__content_input"
-        type="text"
-        placeholder="Поиск города или места"
-        onKeyDown={handleSubmit}
-        onChange={handleChange}
-        value={inputValue}
-      />
-    </div>
-  );
+  render(): JSX.Element {
+    return (
+      <div className="weather-card__content_input-wrapper">
+        <form onSubmit={this.handleSubmit}>
+          <Input
+            className="input weather-card__content_input"
+            type="text"
+            placeholder="Поиск города или места"
+            onChange={this.handleChange}
+            value={this.props.inputValue}
+          />
+        </form>
+      </div>
+    );
+  }
 }
 
-export default SearchBar;
+const mapStateToProps = (state: WeatherCardProps): StateFromProps => ({
+  inputValue: state.inputValue,
+  weatherObject: state.weatherObject,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch): DispatchFromProps => {
+  return  {
+    searchCity: (inputValue: string | undefined): Action => dispatch<any>(searchCity(inputValue)),
+    fetchWeather: (inputValue: string | undefined): Action => dispatch<any>(fetchWeather(inputValue)),
+  }
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(SearchBar);
