@@ -1,47 +1,44 @@
-import React, {ChangeEvent, Component} from 'react';
+import React, {ChangeEvent} from 'react';
 import { Input, Form } from 'antd';
 import './search-bar.css';
-import {WeatherCardProps} from "../../interfaces/WeatherCardProps";
-import {connect} from "react-redux";
+import {WeatherCardProps} from '../../interfaces/WeatherCardProps';
+import {connect} from 'react-redux';
 import {fetchWeather, searchCity} from '../../actions/actions';
-import {Action, Dispatch} from "redux";
+import {Action, ActionCreator, Dispatch} from 'redux';
 import {StateFromProps} from '../../interfaces/StateFromProps';
-import {SearchBarProps} from "../../interfaces/SearchBarProps";
-import {DispatchFromProps} from "../../interfaces/DispatchFromProps";
+import {SearchBarProps} from '../../interfaces/SearchBarProps';
+import {DispatchFromProps} from '../../interfaces/DispatchFromProps';
 
-export class SearchBar extends Component<SearchBarProps> {
-
-  handleSubmit = (): void => {
-    if(this.props.inputValue) {
-      const inputValue: string | undefined = this.props.inputValue
+const SearchBar: React.FC<SearchBarProps> = (props) => {
+  const handleSubmit = (): void => {
+    if(props.inputValue) {
+      const inputValue: string | undefined = props.inputValue
         .replace(/ +/g, ' ').trim();
-      this.props.fetchWeather(inputValue);
+      props.fetchWeather(inputValue);
     }
   }
 
-  handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    this.props.searchCity(e.currentTarget.value);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    props.searchCity(e.currentTarget.value);
   }
 
-  render(): JSX.Element {
-    return (
-      <div className="weather-card__content_input-wrapper">
-        <Form
-          onFinish={this.handleSubmit}>
-          <Form.Item>
-            <Input
-              size="large"
-              className="input weather-card__content_input"
-              type="text"
-              placeholder="Поиск города или места"
-              onChange={this.handleChange}
-              value={this.props.inputValue}
-            />
-          </Form.Item>
-        </Form>
-      </div>
-    );
-  }
+  return (
+    <div className="weather-card__content_input-wrapper">
+      <Form
+        onFinish={handleSubmit}>
+        <Form.Item>
+          <Input
+            size="large"
+            className="input weather-card__content_input"
+            type="text"
+            placeholder="Поиск города или места"
+            onChange={handleChange}
+            value={props.inputValue}
+          />
+        </Form.Item>
+      </Form>
+    </div>
+  )
 }
 
 const mapStateToProps = (state: WeatherCardProps): StateFromProps => ({
