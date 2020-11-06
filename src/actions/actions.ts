@@ -1,7 +1,7 @@
 import {Dispatch} from 'redux';
 import {WeatherObject} from "../interfaces/WeatherObject";
 import WeatherService from "../services/weather-service";
-import {CLEAN_CITY_NAME, ERROR, FETCH_WEATHER, SEARCH_CITY} from "../constants/constants";
+import {CLEAN_CITY_NAME, ERROR, FETCH_WEATHER, SEARCH_CITY} from "../constants/action-constants";
 
 export const searchCity = (inputValue: string | undefined) => (dispatch: Dispatch) => {
   dispatch({
