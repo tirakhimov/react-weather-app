@@ -12,7 +12,9 @@ const WeatherCard: React.FC<WeatherCardProps> = (props) => {
     const setDocumentTitle = (): void => {
       document.title = `Погода в ${props.weatherObject.cityName}`;
     }
-    setDocumentTitle();
+    if (props.weatherObject.cityName) {
+      setDocumentTitle();
+    }
   });
 
   const { weatherObject, error, currentDate } = props;
