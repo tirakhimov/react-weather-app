@@ -18,3 +18,15 @@
 .navbar__links {
   flex-grow: 0.9;
 }
+
+@media (min-width: 320px) {
+  .navbar__logo {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar__logo {
+    display: block;
+  }
+}
