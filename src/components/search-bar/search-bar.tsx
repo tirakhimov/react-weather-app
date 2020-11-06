@@ -1,5 +1,5 @@
 import React, {ChangeEvent, Component, FormEvent} from 'react';
-import { Input } from 'antd';
+import { Input, Form } from 'antd';
 
 import './search-bar.css';
 import {WeatherCardProps} from "../../interfaces/WeatherCardProps";
@@ -27,8 +27,7 @@ interface DispatchFromProps {
 
 export class SearchBar extends Component<SearchBarProps> {
 
-  handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
-    event.preventDefault();
+  handleSubmit = (): void => {
     if(this.props.inputValue) {
       const inputValue: string | undefined = this.props.inputValue
         .replace(/ +/g, ' ').trim();
@@ -43,7 +42,7 @@ export class SearchBar extends Component<SearchBarProps> {
   render(): JSX.Element {
     return (
       <div className="weather-card__content_input-wrapper">
-        <form onSubmit={this.handleSubmit}>
+        <Form onFinish={this.handleSubmit}>
           <Input
             className="input weather-card__content_input"
             type="text"
@@ -51,7 +50,7 @@ export class SearchBar extends Component<SearchBarProps> {
             onChange={this.handleChange}
             value={this.props.inputValue}
           />
-        </form>
+        </Form>
       </div>
     );
   }
