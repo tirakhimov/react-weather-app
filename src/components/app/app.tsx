@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from 'antd';
+import {Col, Layout, Row} from 'antd';
 import Navbar from '../navbar/navbar';
 import WeatherCard from '../weather-card/weather-card';
 import './app.css';
@@ -12,7 +12,11 @@ const App: React.FC = (): JSX.Element => {
     <Layout>
       <Navbar />
       <Content className="content">
-        <WeatherCard />
+        <Row justify="start" align="middle">
+          <Col span={24}>
+            <WeatherCard />
+          </Col>
+        </Row>
       </Content>
       <Footer className="footer">Weather App ©2020 Created by ETD</Footer>
     </Layout>
