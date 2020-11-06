@@ -1,7 +1,11 @@
 .weather-card__content_input-wrapper {
   display: flex;
-  width: 250px;
 }
 .weather-card__content_input {
   margin: 12px 0;
+}
+
+.ant-form-item-control-input {
+  margin-top: 20px;
+  min-width: 300px;
 }
