@@ -1,29 +1,13 @@
 import React, {ChangeEvent, Component} from 'react';
 import { Input, Form } from 'antd';
-
 import './search-bar.css';
 import {WeatherCardProps} from "../../interfaces/WeatherCardProps";
 import {connect} from "react-redux";
 import {fetchWeather, searchCity} from '../../actions/actions';
 import {Action, Dispatch} from "redux";
-import {WeatherObject} from "../../interfaces/WeatherObject";
-
-export interface SearchBarProps {
-  inputValue: string | undefined;
-  weatherObject: WeatherObject;
-  searchCity: (inputValue: string | undefined) => object;
-  fetchWeather: (inputValue: string | undefined) => object;
-}
-
-interface StateFromProps {
-  inputValue: string;
-  weatherObject: WeatherObject;
-}
-
-interface DispatchFromProps {
-  searchCity: (inputValue: string | undefined) => object;
-  fetchWeather: (inputValue: string | undefined) => object;
-}
+import {StateFromProps} from '../../interfaces/StateFromProps';
+import {SearchBarProps} from "../../interfaces/SearchBarProps";
+import {DispatchFromProps} from "../../interfaces/DispatchFromProps";
 
 export class SearchBar extends Component<SearchBarProps> {
 
@@ -38,15 +22,6 @@ export class SearchBar extends Component<SearchBarProps> {
   handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     this.props.searchCity(e.currentTarget.value);
   }
-
-  // layout = {
-  //   labelCol: {
-  //     span: 16,
-  //   },
-  //   wrapperCol: {
-  //     span: 16,
-  //   },
-  // };
 
   render(): JSX.Element {
     return (
