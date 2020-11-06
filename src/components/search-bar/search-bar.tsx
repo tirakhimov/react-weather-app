@@ -1,4 +1,4 @@
-import React, {ChangeEvent, Component, FormEvent} from 'react';
+import React, {ChangeEvent, Component} from 'react';
 import { Input, Form } from 'antd';
 
 import './search-bar.css';
@@ -39,17 +39,30 @@ export class SearchBar extends Component<SearchBarProps> {
     this.props.searchCity(e.currentTarget.value);
   }
 
+  // layout = {
+  //   labelCol: {
+  //     span: 16,
+  //   },
+  //   wrapperCol: {
+  //     span: 16,
+  //   },
+  // };
+
   render(): JSX.Element {
     return (
       <div className="weather-card__content_input-wrapper">
-        <Form onFinish={this.handleSubmit}>
-          <Input
-            className="input weather-card__content_input"
-            type="text"
-            placeholder="Поиск города или места"
-            onChange={this.handleChange}
-            value={this.props.inputValue}
-          />
+        <Form
+          onFinish={this.handleSubmit}>
+          <Form.Item>
+            <Input
+              size="large"
+              className="input weather-card__content_input"
+              type="text"
+              placeholder="Поиск города или места"
+              onChange={this.handleChange}
+              value={this.props.inputValue}
+            />
+          </Form.Item>
         </Form>
       </div>
     );
