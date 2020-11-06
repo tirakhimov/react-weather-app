@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Menu, Layout } from 'antd';
+import {Typography, Menu, Layout, Col} from 'antd';
 
 import './navbar.css';
 
@@ -15,22 +15,22 @@ const Navbar: React.FC = (): JSX.Element => {
           <Text style={{color: "white"}} className="navbar__logo-text">Weather App</Text>
         </a>
       </div>
-      <Menu
-        mode="horizontal"
-        theme="dark"
-        defaultSelectedKeys={["today"]}
-        className="navbar__links"
-      >
-        <Menu.Item key="today" className="link navbar__link">
-          <a href="/#">Сегодня</a>
-        </Menu.Item>
-        <Menu.Item className="link navbar__link">
-          <a href="/#">Завтра</a>
-        </Menu.Item>
-        <Menu.Item className="link navbar__link">
-          <a href="/#">Три дня</a>
-        </Menu.Item>
-      </Menu>
+        <Menu
+          mode="horizontal"
+          theme="dark"
+          defaultSelectedKeys={["today"]}
+          className="navbar__links"
+        >
+          <Menu.Item key="today" className="link navbar__link">
+            <a href="/#">Сегодня</a>
+          </Menu.Item>
+          <Menu.Item className="link navbar__link">
+            <a href="/#">Завтра</a>
+          </Menu.Item>
+          <Menu.Item className="link navbar__link">
+            <a href="/#">Три дня</a>
+          </Menu.Item>
+        </Menu>
     </Header>
   );
 }
