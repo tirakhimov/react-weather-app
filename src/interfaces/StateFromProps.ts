@@ -1,4 +1,4 @@
-import {WeatherObject} from "./WeatherObject";
+import {WeatherObject} from './WeatherObject';
 
 export interface StateFromProps {
   inputValue: string;

@@ -4,7 +4,7 @@ import './search-bar.css';
 import {WeatherCardProps} from '../../interfaces/WeatherCardProps';
 import {connect} from 'react-redux';
 import {fetchWeather, searchCity} from '../../actions/actions';
-import {Action, ActionCreator, Dispatch} from 'redux';
+import {Action, Dispatch} from 'redux';
 import {StateFromProps} from '../../interfaces/StateFromProps';
 import {SearchBarProps} from '../../interfaces/SearchBarProps';
 import {DispatchFromProps} from '../../interfaces/DispatchFromProps';
