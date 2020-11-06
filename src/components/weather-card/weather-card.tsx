@@ -20,7 +20,7 @@ const WeatherCard: React.FC<WeatherCardProps> = (props) => {
   const { weatherObject, error, currentDate } = props;
   return (
     <Row justify="center" align="middle">
-      <Col span={8}>
+      <Col xs={24} sm={16} md={12} lg={8}>
         <Card className="weather-card">
           <WeatherCardContent
             weatherObject={weatherObject}
