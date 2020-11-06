@@ -1,4 +1,6 @@
+import {Action} from "redux";
+
 export interface DispatchFromProps {
-  searchCity: (inputValue: string | undefined) => object;
-  fetchWeather: (inputValue: string | undefined) => object;
+  searchCity: (inputValue: string | undefined) => Action;
+  fetchWeather: (inputValue: string | undefined) => Action;
 }
