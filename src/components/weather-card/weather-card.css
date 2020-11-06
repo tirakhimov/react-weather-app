@@ -1,12 +1,25 @@
 .weather-card {
   display: grid;
-  justify-items: center;
+  align-content: center;
   min-height: 260px;
 }
 
-.ant-card-body {
-  min-width: 100%;
-  display: grid;
-  justify-items: center;
-  align-content: center;
+@media (max-width: 320px) {
+  .content {
+    display: grid;
+    justify-content: center;
+  }
+  .weather-card {
+    min-width: 300px;
+  }
+}
+
+@media (max-width: 414px) {
+  .content {
+    display: grid;
+    justify-content: center;
+  }
+  .weather-card {
+    min-width: 300px;
+  }
 }
