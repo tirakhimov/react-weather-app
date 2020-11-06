@@ -1,5 +1,5 @@
 import React, {ChangeEvent} from 'react';
-import { Input, Form } from 'antd';
+import {Input, Form, Col, Row} from 'antd';
 import './search-bar.css';
 import {WeatherCardProps} from '../../interfaces/WeatherCardProps';
 import {connect} from 'react-redux';
@@ -23,21 +23,23 @@ const SearchBar: React.FC<SearchBarProps> = (props) => {
   }
 
   return (
-    <div className="weather-card__content_input-wrapper">
-      <Form
-        onFinish={handleSubmit}>
-        <Form.Item>
-          <Input
-            size="large"
-            className="input weather-card__content_input"
-            type="text"
-            placeholder="Поиск города или места"
-            onChange={handleChange}
-            value={props.inputValue}
-          />
-        </Form.Item>
-      </Form>
-    </div>
+    <Row className="" justify="center" align="middle">
+      <Col span={20} className="weather-card__content_input-wrapper">
+        <Form
+          onFinish={handleSubmit}>
+          <Col span={20} offset={2}>
+            <Input
+              size="large"
+              className="input weather-card__content_input"
+              type="text"
+              placeholder="Поиск города или места"
+              onChange={handleChange}
+              value={props.inputValue}
+            />
+          </Col>
+        </Form>
+      </Col>
+    </Row>
   )
 }
 
