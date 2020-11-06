@@ -51,6 +51,7 @@ function weatherCardReducer(state = initialState, action: GenericAction): Weathe
       return ({
         ...state,
         error: action.payload,
+        weatherObject: {},
       } as WeatherCardProps)
 
     default:
