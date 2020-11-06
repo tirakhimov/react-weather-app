@@ -7,6 +7,7 @@ import EmojiAndTemperature from '../emoji-and-temperature/emoji-and-temperature'
 import {WeatherCardContentProps} from "../../interfaces/WeatherCardContentProps";
 
 import './weather-card-content.css';
+import {Col, Row} from "antd";
 
 const WeatherCardContent: React.FC<WeatherCardContentProps> = ({
   weatherObject,
@@ -18,13 +19,27 @@ const WeatherCardContent: React.FC<WeatherCardContentProps> = ({
   const errorMessage = 'Такого города не существует';
 
   return (
-    <>
-      <WeatherCardHeader cityName={cityName} error={error} />
-      <SearchBar />
-      { error ? <ErrorIndicator errorMessage={errorMessage} /> : null }
-      { tempAndWeatherName.temperature ? <CurrentDate currentDate={currentDate} /> : null }
-      <EmojiAndTemperature tempAndWeatherName={tempAndWeatherName} />
-    </>
+    <Row
+      gutter={[14, 24]}
+      className="weather-card__content"
+      justify="center"
+    >
+      <Col className="gutter-row">
+        <WeatherCardHeader cityName={cityName} error={error} />
+      </Col>
+      <Col className="gutter-row" span={24}>
+        <SearchBar />
+      </Col>
+      <Col className="gutter-row">
+        { error ? <ErrorIndicator errorMessage={errorMessage} /> : null }
+      </Col>
+      <Col className="gutter-row">
+        { tempAndWeatherName.temperature ? <CurrentDate currentDate={currentDate} /> : null }
+      </Col>
+      <Col className="gutter-row">
+        <EmojiAndTemperature tempAndWeatherName={tempAndWeatherName} />
+      </Col>
+    </Row>
   );
 }
 
