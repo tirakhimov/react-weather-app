@@ -1,6 +1,6 @@
 import DateFormatter from '../services/date-formatter';
 import {WeatherCardProps} from "../interfaces/WeatherCardProps";
-import {CLEAN_CITY_NAME, ERROR, FETCH_WEATHER, SEARCH_CITY} from '../actions/actions';
+import {CLEAN_CITY_NAME, ERROR, FETCH_WEATHER, SEARCH_CITY} from '../constants/action-constants';
 import {WeatherObject} from '../interfaces/WeatherObject';
 import {ErrorAction, FetchWeatherAction, SearchCityAction} from '../interfaces/ActionInterfaces';
 
