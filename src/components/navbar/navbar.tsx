@@ -6,14 +6,14 @@ import './navbar.css';
 const Navbar: React.FC = (): JSX.Element => {
 
   const { Header } = Layout;
-  const { Text } = Typography;
+  const { Text, Link } = Typography;
 
   return (
     <Header className="navbar">
       <div className="navbar__logo">
-        <a href="/#" className="link navbar__logo-link">
-          <Text style={{color: "white"}} className="navbar__logo-text">Weather App</Text>
-        </a>
+        <Link href="/#" className="link navbar__logo-link">
+          <Text className="navbar__logo-text">Weather App</Text>
+        </Link>
       </div>
         <Menu
           mode="horizontal"
@@ -22,13 +22,13 @@ const Navbar: React.FC = (): JSX.Element => {
           className="navbar__links"
         >
           <Menu.Item key="today" className="link navbar__link">
-            <a href="/#">Сегодня</a>
+            <Link href="/#">Сегодня</Link>
           </Menu.Item>
           <Menu.Item className="link navbar__link">
-            <a href="/#">Завтра</a>
+            <Link href="/#">Завтра</Link>
           </Menu.Item>
           <Menu.Item className="link navbar__link">
-            <a href="/#">Три дня</a>
+            <Link href="/#">Три дня</Link>
           </Menu.Item>
         </Menu>
     </Header>
