@@ -7,7 +7,7 @@
 }
 
 .navbar__logo-text {
-  color: #fff;
+  color: #fff !important;
   font-size: 2rem;
 }
 
