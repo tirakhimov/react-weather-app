@@ -1,5 +1,5 @@
 import React from 'react';
-import {Typography, Menu, Layout, Col} from 'antd';
+import {Typography, Menu, Layout} from 'antd';
 
 import './navbar.css';
 
