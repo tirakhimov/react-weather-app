@@ -6,13 +6,9 @@
   justify-content: space-between;
 }
 
-.navbar__logo-text {
-  color: #fff !important;
-  font-size: 2rem;
-}
-
-.navbar__logo-link {
+.ant-typography.navbar__logo-text {
   color: #fff;
+  font-size: 2rem;
 }
 
 .navbar__links {
