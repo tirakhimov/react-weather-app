@@ -1,6 +1,6 @@
 import NetworkingService, { WeatherResponse } from './networking-service';
 import EmojiService from './emoji-service';
-import { WeatherObject } from "../interfaces/WeatherObject";
+import { WeatherObject } from '../interfaces/WeatherObject';
 
 export default class WeatherService {
 

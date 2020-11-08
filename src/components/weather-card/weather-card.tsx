@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, Col, Row } from 'antd';
 import WeatherCardContent from '../weather-card-content/weather-card-content';
-import { WeatherObject } from "../../interfaces/WeatherObject";
-import WeatherService from "../../services/weather-service";
-import DateFormatter from "../../services/date-formatter";
+import { WeatherObject } from '../../interfaces/WeatherObject';
+import WeatherService from '../../services/weather-service';
+import DateFormatter from '../../services/date-formatter';
 
 import './weather-card.css';
 
