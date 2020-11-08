@@ -10,8 +10,9 @@ export const searchCity = (inputValue: string | undefined) => (dispatch: Dispatc
   });
 }
 
+const weatherService = new WeatherService();
+
 export const fetchWeather = (inputValue: string | undefined) => (dispatch: Dispatch): Promise<void> => {
-  const weatherService = new WeatherService();
   return weatherService.getWeatherForToday(inputValue)
     .then((response: WeatherObject) => {
       dispatch({
