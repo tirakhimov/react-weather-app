@@ -4,20 +4,18 @@ import CurrentDate from '../current-date/current-date';
 import ErrorIndicator from '../error-indicator/error-indicator';
 import WeatherCardHeader from '../weather-card-header/weather-card-header';
 import EmojiAndTemperature from '../emoji-and-temperature/emoji-and-temperature';
-import { WeatherObject } from '../../interfaces/WeatherObject';
 
 import './weather-card-content.css';
+import {WeatherObject} from "../../interfaces/WeatherObject";
 
-export interface WeatherCardContentProps {
+interface WeatherCardContentProps {
   weatherObject: WeatherObject;
-  onInputChange: (inputValue: string) => void;
   error?: Error;
   currentDate: string;
 }
 
 const WeatherCardContent: React.FC<WeatherCardContentProps> = ({
   weatherObject,
-  onInputChange,
   error,
   currentDate,
 }) => {
@@ -28,7 +26,7 @@ const WeatherCardContent: React.FC<WeatherCardContentProps> = ({
   return (
     <>
       <WeatherCardHeader cityName={cityName} error={error} />
-      <SearchBar onInputSubmit={(inputValue): void => onInputChange(inputValue)} />
+      <SearchBar />
       { error ? <ErrorIndicator errorMessage={errorMessage} /> : null }
       { tempAndWeatherName.temperature ? <CurrentDate currentDate={currentDate} /> : null }
       <EmojiAndTemperature tempAndWeatherName={tempAndWeatherName} />

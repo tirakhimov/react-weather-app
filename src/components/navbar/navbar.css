@@ -7,8 +7,12 @@
 }
 
 .navbar__logo-text {
-  color: white;
+  color: #fff;
   font-size: 2rem;
+}
+
+.navbar__logo-link {
+  color: #fff;
 }
 
 .navbar__links {

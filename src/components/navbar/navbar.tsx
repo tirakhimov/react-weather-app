@@ -12,7 +12,7 @@ const Navbar: React.FC = (): JSX.Element => {
     <Header className="navbar">
       <div className="navbar__logo">
         <a href="/#" className="link navbar__logo-link">
-          <Text className="navbar__logo-text">Weather App</Text>
+          <Text style={{color: "white"}} className="navbar__logo-text">Weather App</Text>
         </a>
       </div>
       <Menu

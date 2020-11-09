@@ -20,7 +20,7 @@ export default class NetworkingService {
     this._apiKey = '725cc83d358bd4a0ea4c6dcd990a60fb';
   }
 
-  async getWeather(cityName: string): Promise<WeatherResponse> {
+  async getWeather(cityName: string | undefined): Promise<WeatherResponse> {
     try {
       const response = await fetch(`${this._apiBase}${cityName}&appid=${this._apiKey}&units=metric`);
       return await response.json();

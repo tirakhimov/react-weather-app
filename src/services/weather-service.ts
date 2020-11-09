@@ -15,7 +15,7 @@ export default class WeatherService {
     this.emojiService = emojiService;
   }
 
-  getWeatherForToday(cityName: string): Promise<WeatherObject> {
+  getWeatherForToday(cityName: string | undefined): Promise<WeatherObject> {
     return this.networkingService
       .getWeather(cityName)
       .then((response: WeatherResponse) => {
