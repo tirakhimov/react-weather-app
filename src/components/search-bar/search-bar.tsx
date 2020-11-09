@@ -23,7 +23,7 @@ const SearchBar: React.FC<SearchBarProps> = (props) => {
   }
 
   return (
-    <Row className="" justify="center" align="middle">
+    <Row justify="center" align="middle">
       <Col span={20} className="weather-card__content_input-wrapper">
         <Form
           onFinish={handleSubmit}>
