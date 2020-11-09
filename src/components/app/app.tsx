@@ -12,7 +12,7 @@ const App: React.FC = (): JSX.Element => {
     <Layout>
       <Navbar />
       <Content className="content">
-        <Row justify="start" align="middle">
+        <Row justify="center" align="middle">
           <Col span={24}>
             <WeatherCard />
           </Col>

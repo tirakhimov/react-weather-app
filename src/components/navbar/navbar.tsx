@@ -6,13 +6,13 @@ import './navbar.css';
 const Navbar: React.FC = (): JSX.Element => {
 
   const { Header } = Layout;
-  const { Text, Link } = Typography;
+  const { Title, Link } = Typography;
 
   return (
     <Header className="navbar">
       <div className="navbar__logo">
         <Link href="/#" className="link navbar__logo-link">
-          <Text className="navbar__logo-text">Weather App</Text>
+          <Title className="navbar__logo-text">Weather App</Title>
         </Link>
       </div>
         <Menu
