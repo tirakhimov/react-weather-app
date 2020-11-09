@@ -15,14 +15,14 @@
   flex-grow: 0.9;
 }
 
-@media (min-width: 320px) {
-  .navbar__logo {
-    display: none;
+@media (max-width: 320px) {
+  .ant-typography.navbar__logo-text {
+    font-size: 10px;
   }
 }
 
-@media (min-width: 768px) {
-  .navbar__logo {
-    display: block;
+@media (max-width: 768px) {
+  .ant-typography.navbar__logo-text {
+    font-size: 10px;
   }
 }
