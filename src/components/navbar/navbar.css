@@ -3,26 +3,37 @@
   z-index: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .ant-typography.navbar__logo-text {
   color: #fff;
   font-size: 2rem;
+  margin-bottom: 0;
 }
 
-.navbar__links {
-  flex-grow: 0.9;
+.ant-btn.bars-menu {
+  display: none;
+  position: fixed;
+  right: 30px;
+}
+
+.large-menu {
+  margin-left: 20px;
 }
 
 @media (max-width: 320px) {
   .ant-typography.navbar__logo-text {
-    font-size: 10px;
+    font-size: 20px;
   }
 }
 
-@media (max-width: 768px) {
-  .ant-typography.navbar__logo-text {
-    font-size: 10px;
+@media (max-width: 600px) {
+  .ant-btn.bars-menu {
+    display: block;
+  }
+
+  .large-menu {
+    display: none;
   }
 }
+
