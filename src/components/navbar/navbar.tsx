@@ -1,9 +1,21 @@
-import React from 'react';
-import {Typography, Menu, Layout} from 'antd';
+import React, { useState } from 'react';
+import { Typography, Layout, Button, Drawer } from 'antd';
+import { MenuFoldOutlined } from '@ant-design/icons';
 
 import './navbar.css';
+import NavbarMenu from "../navbar-menu/navbar-menu";
 
 const Navbar: React.FC = (): JSX.Element => {
+
+  const [drawerVisible, setDrawerVisible] = useState(false);
+
+  const showDrawer = (): void => {
+    setDrawerVisible(true);
+  };
+
+  const onClose = (): void => {
+    setDrawerVisible(false);
+  };
 
   const { Header } = Layout;
   const { Title, Link } = Typography;
@@ -15,22 +27,25 @@ const Navbar: React.FC = (): JSX.Element => {
           <Title className="navbar__logo-text">Weather App</Title>
         </Link>
       </div>
-        <Menu
-          mode="horizontal"
-          theme="dark"
-          defaultSelectedKeys={["today"]}
-          className="navbar__links"
-        >
-          <Menu.Item key="today" className="link navbar__link">
-            <Link href="/#">Сегодня</Link>
-          </Menu.Item>
-          <Menu.Item className="link navbar__link">
-            <Link href="/#">Завтра</Link>
-          </Menu.Item>
-          <Menu.Item className="link navbar__link">
-            <Link href="/#">Три дня</Link>
-          </Menu.Item>
-        </Menu>
+      <div className="large-menu">
+        <NavbarMenu />
+      </div>
+      <Button
+        className="bars-menu"
+        onClick={showDrawer}
+        type={"primary"}
+      >
+        {React.createElement(MenuFoldOutlined)}
+      </Button>
+      <Drawer
+        title="Показать погоду"
+        placement="right"
+        closable={false}
+        onClose={onClose}
+        visible={drawerVisible}
+      >
+        <NavbarMenu />
+      </Drawer>
     </Header>
   );
 }
