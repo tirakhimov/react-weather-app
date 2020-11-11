@@ -1,36 +1,41 @@
-import React from 'react';
-import { Typography, Menu, Layout } from 'antd';
+import React, { useState } from 'react';
+import { Typography, Layout, Dropdown } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
+import NavbarMenu from '../navbar-menu/navbar-menu';
 
 import './navbar.css';
 
 const Navbar: React.FC = (): JSX.Element => {
 
+  const [menuItem, setMenuItem] = useState('Сегодня');
+
   const { Header } = Layout;
-  const { Text } = Typography;
+  const { Title, Link } = Typography;
 
   return (
     <Header className="navbar">
       <div className="navbar__logo">
-        <a href="/#" className="link navbar__logo-link">
-          <Text style={{color: "white"}} className="navbar__logo-text">Weather App</Text>
-        </a>
+        <Link href="/#" className="link navbar__logo-link">
+          <Title className="navbar__logo-text">Weather App</Title>
+        </Link>
       </div>
-      <Menu
-        mode="horizontal"
-        theme="dark"
-        defaultSelectedKeys={["today"]}
-        className="navbar__links"
+      <div className="large-menu">
+        <NavbarMenu
+          setMenuItem={setMenuItem}
+        />
+      </div>
+      <Dropdown
+        className="dropdown-menu"
+        overlay={ <NavbarMenu setMenuItem={setMenuItem}/> }
+        trigger={['click']}
       >
-        <Menu.Item key="today" className="link navbar__link">
-          <a href="/#">Сегодня</a>
-        </Menu.Item>
-        <Menu.Item className="link navbar__link">
-          <a href="/#">Завтра</a>
-        </Menu.Item>
-        <Menu.Item className="link navbar__link">
-          <a href="/#">Три дня</a>
-        </Menu.Item>
-      </Menu>
+        <Link
+          href="/#"
+          className="ant-dropdown-link"
+          onClick={(e): void => e.preventDefault()}>
+          {menuItem} <DownOutlined />
+        </Link>
+      </Dropdown>
     </Header>
   );
 }

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { Card, Col, Row } from 'antd';
 import { connect } from 'react-redux';
 import WeatherCardContent from '../weather-card-content/weather-card-content';
@@ -20,7 +20,7 @@ const WeatherCard: React.FC<WeatherCardProps> = (props) => {
   const { weatherObject, error, currentDate } = props;
   return (
     <Row justify="center" align="middle">
-      <Col span={8}>
+      <Col xs={24} sm={18} md={13} lg={10} xl={7} xxl={6}>
         <Card className="weather-card">
           <WeatherCardContent
             weatherObject={weatherObject}

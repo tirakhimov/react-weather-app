@@ -3,18 +3,42 @@
   z-index: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
-.navbar__logo-text {
+.ant-typography.navbar__logo-text {
   color: #fff;
   font-size: 2rem;
+  margin-bottom: 0;
 }
 
-.navbar__logo-link {
-  color: #fff;
+.dropdown-menu {
+  display: none;
 }
 
-.navbar__links {
-  flex-grow: 0.9;
+.ant-typography.ant-dropdown-link {
+  color: white;
 }
+
+.large-menu {
+  margin-left: 20px;
+}
+
+@media (max-width: 600px) {
+  .dropdown-menu {
+    display: block;
+    position: fixed;
+    right: 20px;
+  }
+
+  .large-menu {
+    display: none;
+  }
+
+  .ant-typography.navbar__logo-text {
+    font-size: 20px;
+    position: absolute;
+    left: 30px;
+    top: 20px;
+  }
+}
+
