@@ -1,17 +1,33 @@
 import React, {ChangeEvent} from 'react';
 import {Input, Form, Col, Row} from 'antd';
+
 import './search-bar.css';
-import {WeatherCardProps} from '../../interfaces/WeatherCardProps';
-import {connect} from 'react-redux';
-import {fetchWeather, searchCity} from '../../actions/actions';
-import {Action, Dispatch} from 'redux';
-import {StateFromProps} from '../../interfaces/StateFromProps';
-import {SearchBarProps} from '../../interfaces/SearchBarProps';
-import {DispatchFromProps} from '../../interfaces/DispatchFromProps';
+import { WeatherCardProps } from '../../interfaces/WeatherCardProps';
+import { connect } from 'react-redux';
+import { fetchWeather, searchCity } from '../../actions/actions';
+import { Action, Dispatch } from 'redux';
+import { WeatherObject } from '../../interfaces/WeatherObject';
+
+interface SearchBarProps {
+  inputValue: string | undefined;
+  weatherObject: WeatherObject;
+  searchCity: (inputValue: string | undefined) => object;
+  fetchWeather: (inputValue: string | undefined) => object;
+}
+
+interface DispatchFromProps {
+  searchCity: (inputValue: string | undefined) => Action;
+  fetchWeather: (inputValue: string | undefined) => Action;
+}
+
+interface StateFromProps {
+  inputValue: string;
+  weatherObject: WeatherObject;
+}
 
 const SearchBar: React.FC<SearchBarProps> = (props) => {
   const handleSubmit = (): void => {
-    if(props.inputValue) {
+    if (props.inputValue) {
       const inputValue: string | undefined = props.inputValue
         .replace(/ +/g, ' ').trim();
       props.fetchWeather(inputValue);

@@ -2,7 +2,6 @@ import DateFormatter from '../services/date-formatter';
 import {WeatherCardProps} from "../interfaces/WeatherCardProps";
 import {CLEAN_CITY_NAME, ERROR, FETCH_WEATHER, SEARCH_CITY} from '../constants/action-constants';
 import {WeatherObject} from '../interfaces/WeatherObject';
-import {ErrorAction, FetchWeatherAction, SearchCityAction} from '../interfaces/ActionInterfaces';
 
 const initialState: WeatherCardProps = {
   weatherObject: {},
@@ -11,6 +10,21 @@ const initialState: WeatherCardProps = {
   requestTime: new Date().getTime(),
   currentDate: new DateFormatter().formatDate(),
 };
+
+export interface FetchWeatherAction {
+  type: string;
+  payload: any;
+}
+
+export interface SearchCityAction {
+  type: string;
+  payload: string;
+}
+
+export interface ErrorAction {
+  type: string;
+  payload: Error | undefined;
+}
 
 type GenericAction = FetchWeatherAction | SearchCityAction | ErrorAction;
 
@@ -25,7 +39,7 @@ function weatherCardReducer(state = initialState, action: GenericAction): Weathe
 
     case FETCH_WEATHER:
 
-      if (action.payload !== undefined) {
+      if (action.payload) {
         const weatherObject: WeatherObject = {
           ...state.weatherObject,
           cityName: action.payload.cityName,
