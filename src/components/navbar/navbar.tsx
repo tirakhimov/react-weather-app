@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Typography, Layout, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import NavbarMenu from "../navbar-menu/navbar-menu";
@@ -6,6 +6,8 @@ import NavbarMenu from "../navbar-menu/navbar-menu";
 import './navbar.css';
 
 const Navbar: React.FC = (): JSX.Element => {
+
+  const [menuItem, setMenuItem] = useState('Сегодня');
 
   const { Header } = Layout;
   const { Title, Link } = Typography;
@@ -18,11 +20,20 @@ const Navbar: React.FC = (): JSX.Element => {
         </Link>
       </div>
       <div className="large-menu">
-        <NavbarMenu />
+        <NavbarMenu
+          setMenuItem={setMenuItem}
+        />
       </div>
-      <Dropdown className="dropdown-menu" overlay={ <NavbarMenu /> } trigger={['click']}>
-        <Link href="/#" className="ant-dropdown-link" onClick={(e): void => e.preventDefault()}>
-          Показать погоду <DownOutlined />
+      <Dropdown
+        className="dropdown-menu"
+        overlay={ <NavbarMenu setMenuItem={setMenuItem}/> }
+        trigger={['click']}
+      >
+        <Link
+          href="/#"
+          className="ant-dropdown-link"
+          onClick={(e): void => e.preventDefault()}>
+          {menuItem} <DownOutlined />
         </Link>
       </Dropdown>
     </Header>
