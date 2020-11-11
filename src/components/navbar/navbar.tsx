@@ -1,21 +1,11 @@
-import React, { useState } from 'react';
-import { Typography, Layout, Button, Drawer } from 'antd';
-import { MenuFoldOutlined } from '@ant-design/icons';
-
-import './navbar.css';
+import React from 'react';
+import { Typography, Layout, Dropdown } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 import NavbarMenu from "../navbar-menu/navbar-menu";
 
+import './navbar.css';
+
 const Navbar: React.FC = (): JSX.Element => {
-
-  const [drawerVisible, setDrawerVisible] = useState(false);
-
-  const showDrawer = (): void => {
-    setDrawerVisible(true);
-  };
-
-  const onClose = (): void => {
-    setDrawerVisible(false);
-  };
 
   const { Header } = Layout;
   const { Title, Link } = Typography;
@@ -30,22 +20,11 @@ const Navbar: React.FC = (): JSX.Element => {
       <div className="large-menu">
         <NavbarMenu />
       </div>
-      <Button
-        className="bars-menu"
-        onClick={showDrawer}
-        type={"primary"}
-      >
-        {React.createElement(MenuFoldOutlined)}
-      </Button>
-      <Drawer
-        title="Показать погоду"
-        placement="right"
-        closable={false}
-        onClose={onClose}
-        visible={drawerVisible}
-      >
-        <NavbarMenu />
-      </Drawer>
+      <Dropdown className="dropdown-menu" overlay={ <NavbarMenu /> } trigger={['click']}>
+        <Link href="/#" className="ant-dropdown-link" onClick={(e): void => e.preventDefault()}>
+          Показать погоду <DownOutlined />
+        </Link>
+      </Dropdown>
     </Header>
   );
 }
