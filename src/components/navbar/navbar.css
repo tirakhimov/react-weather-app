@@ -11,29 +11,34 @@
   margin-bottom: 0;
 }
 
-.ant-btn.bars-menu {
+.dropdown-menu {
   display: none;
-  position: fixed;
-  right: 30px;
+}
+
+.ant-typography.ant-dropdown-link {
+  color: white;
 }
 
 .large-menu {
   margin-left: 20px;
 }
 
-@media (max-width: 320px) {
-  .ant-typography.navbar__logo-text {
-    font-size: 20px;
-  }
-}
-
 @media (max-width: 600px) {
-  .ant-btn.bars-menu {
+  .dropdown-menu {
     display: block;
+    position: fixed;
+    right: 20px;
   }
 
   .large-menu {
     display: none;
+  }
+
+  .ant-typography.navbar__logo-text {
+    font-size: 20px;
+    position: absolute;
+    left: 30px;
+    top: 20px;
   }
 }
 
