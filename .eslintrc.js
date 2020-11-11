@@ -17,6 +17,8 @@ module.exports = {
     "plugin:@typescript-eslint/recommended" // Uses the recommended rules from @typescript-eslint/eslint-plugin
   ],
   rules: {
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "quotes": ["error", "single"],
+    "object-curly-spacing": ["error", "always"]
   }
 };

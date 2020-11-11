@@ -1,6 +1,6 @@
-import {Dispatch} from 'redux';
-import {WeatherObject} from '../interfaces/WeatherObject';
-import WeatherService from '../services/weather-service';
+import { Dispatch } from 'redux';
+import { WeatherObject } from '../interfaces/WeatherObject';
+import WeatherService from "../services/weather-service";
 import {CLEAN_CITY_NAME, ERROR, FETCH_WEATHER, SEARCH_CITY} from '../constants/action-constants';
 
 export const searchCity = (inputValue: string | undefined) => (dispatch: Dispatch): void => {
@@ -10,8 +10,9 @@ export const searchCity = (inputValue: string | undefined) => (dispatch: Dispatc
   });
 }
 
+const weatherService = new WeatherService();
+
 export const fetchWeather = (inputValue: string | undefined) => (dispatch: Dispatch): Promise<void> => {
-  const weatherService = new WeatherService();
   return weatherService.getWeatherForToday(inputValue)
     .then((response: WeatherObject) => {
       dispatch({
