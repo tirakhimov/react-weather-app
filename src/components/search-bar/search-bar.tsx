@@ -1,5 +1,5 @@
-import React, {ChangeEvent} from 'react';
-import {Input, Form, Col, Row} from 'antd';
+import React, { ChangeEvent } from 'react';
+import { Input, Form, Col, Row } from 'antd';
 
 import './search-bar.css';
 import { WeatherCardProps } from '../../interfaces/WeatherCardProps';

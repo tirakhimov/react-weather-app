@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { Card, Col, Row } from 'antd';
 import { connect } from 'react-redux';
 import WeatherCardContent from '../weather-card-content/weather-card-content';

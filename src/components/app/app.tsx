@@ -1,5 +1,5 @@
 import React from 'react';
-import {Col, Layout, Row} from 'antd';
+import { Col, Layout, Row } from 'antd';
 import Navbar from '../navbar/navbar';
 import WeatherCard from '../weather-card/weather-card';
 import './app.css';

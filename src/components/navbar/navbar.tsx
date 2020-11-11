@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Typography, Layout, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import NavbarMenu from "../navbar-menu/navbar-menu";
+import NavbarMenu from '../navbar-menu/navbar-menu';
 
 import './navbar.css';
 

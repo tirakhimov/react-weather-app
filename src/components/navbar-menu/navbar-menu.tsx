@@ -1,12 +1,12 @@
-import React from "react";
-import {Grid, Menu, Typography} from "antd";
+import React from 'react';
+import { Grid, Menu, Typography } from 'antd';
 import './navbar-menu.css';
 
 interface NavbarMenuProps {
   setMenuItem: (state: string) => void;
 }
 
-const NavbarMenu: React.FC<NavbarMenuProps> = ({setMenuItem}): JSX.Element => {
+const NavbarMenu: React.FC<NavbarMenuProps> = ({ setMenuItem }): JSX.Element => {
 
   const { Link } = Typography;
   const { useBreakpoint } = Grid;
@@ -20,9 +20,9 @@ const NavbarMenu: React.FC<NavbarMenuProps> = ({setMenuItem}): JSX.Element => {
 
   return(
     <Menu
-      mode={xs ? "inline" : "horizontal"}
-      theme={xs ? "light" : "dark"}
-      defaultSelectedKeys={["today"]}
+      mode={xs ? 'inline' : 'horizontal'}
+      theme={xs ? 'light' : 'dark'}
+      defaultSelectedKeys={['today']}
       className="navbar__links"
     >
       <Menu.Item key="today" className="link navbar__link">
