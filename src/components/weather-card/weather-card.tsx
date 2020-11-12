@@ -44,4 +44,3 @@ const mapStateToProps = (state: WeatherCardProps): WeatherCardProps => ({
 export default connect(
   mapStateToProps,
 )(WeatherCard);
-
