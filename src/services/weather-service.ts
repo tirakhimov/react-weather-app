@@ -1,6 +1,6 @@
-import NetworkingService, { WeatherResponse } from './networking-service';
+import NetworkingService, {WeatherResponse, WeatherResponseWeek} from './networking-service';
 import EmojiService from './emoji-service';
-import { WeatherObject } from '../interfaces/WeatherObject';
+import {WeatherObject} from '../interfaces/WeatherObject';
 
 export default class WeatherService {
 
@@ -15,22 +15,24 @@ export default class WeatherService {
     this.emojiService = emojiService;
   }
 
+  configureWeatherObject(cityName: string, temperature: number, weatherName: string): WeatherObject {
+    return {
+      cityName: cityName,
+      temperature: `${temperature}`,
+      weatherName: `${this.emojiService.setEmojiFor(weatherName)}`,
+    }
+  }
+
   getWeatherForToday(cityName: string | undefined): Promise<WeatherObject> {
     return this.networkingService
-      .getWeather(cityName)
+      .getWeatherForToday(cityName)
       .then((response: WeatherResponse) => {
 
         const cityName: string = response.name;
         const weatherName: string = response.weather[0].main;
         const temperature: number = Math.round(response.main.temp);
 
-        const weatherObject: WeatherObject = {
-          cityName: `${cityName}`,
-          temperature: `${temperature}`,
-          weatherName: `${this.emojiService.setEmojiFor(weatherName)}`,
-        };
-
-        return weatherObject;
+        return this.configureWeatherObject(cityName, temperature, weatherName);
       });
   }
 
