@@ -33,4 +33,16 @@ export default class WeatherService {
         return weatherObject;
       });
   }
+
+  getWeatherForTomorrow(cityName: string | undefined): Promise<WeatherObject> {
+    return this.networkingService
+      .getWeatherForWeek(cityName)
+      .then((response: WeatherResponseWeek) => {
+        const cityName: string = response.name;
+        const weatherName: string = response.daily[1].weather[0].main;
+        const temperature: number = Math.round(response.daily[1].temp.day);
+        
+        return this.configureWeatherObject(cityName, temperature, weatherName);
+      })
+  }
 }
